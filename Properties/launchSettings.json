@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:31512",
+      "sslPort": 44322
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Umbraco.Web.UI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44322;http://localhost:31512",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "kim": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44322;http://localhost:31512",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "kim"
+      }
+    },
+    "lisa": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44322;http://localhost:31512",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "lisa"
+      }
+    },
+    "lara": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44322;http://localhost:31512",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "lara"
+      }
+    },
+    "erik": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44322;http://localhost:31512",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "erik"
+      }
+    },
+    "sharedDB": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44322;http://localhost:31512",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "sharedDB"
+      }
+    }
+  }
