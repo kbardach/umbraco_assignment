@@ -1,0 +1,57 @@
+﻿/*NAVBAR*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.navbar-brand {
+    font-size: 1.25rem;
+    color: #fff !important;
+}
+
+.nav-link {
+    color: #202020 !important;
+}
+
+.nav-link.active {
+    color: #0d6efd;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,...");
+}
+
+.form-control {
+    max-width: 200px;
+}
+
+.btn-outline-success {
+    color: #198754; 
+    border-color: #198754;
+}
+
+.form-control {
+    background-color: #454545 !important;
+}
+
+.btn-outline-success {
+    color: #8E8E8E !important;
+    border-color: #202020 !important;
+    background-color: #454545 !important;
+}
+
+    .btn-outline-success:hover {
+        color: #fff !important;
+        background-color: #454545 !important;
+        border-color: #8E8E8E !important;
+    }
+
+
+.bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: black !important; /* Dark background */
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
