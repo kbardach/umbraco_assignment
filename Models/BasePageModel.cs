@@ -3,11 +3,7 @@
     using Umbraco.Cms.Core.Models.PublishedContent;
     using Umbraco.Cms.Core.Web;
     using Umbraco.Cms.Web.Common.PublishedModels;
-	using static umbraco_assignment.Models.Interfaces.IPageModel;
-	//using static OpenIddict.Abstractions.OpenIddictConstants;
-
-	//FRÅGA OM SKILLNADEN HÄR
-	//public class BasePageModel<T> : IPublishedContent where T : IPublishedContent
+	using umbraco_assignment.Models.Interfaces;
 
 	namespace kim_umbraco.Models
     {
@@ -90,9 +86,9 @@
 
             public IEnumerable<IPublishedProperty> Properties => MapProperty(c => c.Properties);
 
-            IPublishedContent IPageModel.Content => Content;
+			IPublishedContent IPageModel.Content => Content;
 
-            public bool IsDraft(string? culture = null)
+			public bool IsDraft(string? culture = null)
             {
                 return Content.IsDraft();
             }

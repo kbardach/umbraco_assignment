@@ -1,20 +1,47 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using umbraco_assignment.Models.Interfaces
+@using umbraco_assignment.Models.kim_umbraco.Models
+@inject IVariationContextAccessor _variation;
+
 @inherits UmbracoViewPage
 
 @{
     Layout = null;
+
+    var title = string.Empty;
+    var description = "Default description";
+
+    if (Model is IPageModel model)
+    {
+        title = model.Content is ISeo seo && !seo.Title.IsNullOrWhiteSpace() ? seo.Title : Model.Name;
+        description = model.Content is IMetaData metadata && !metadata.MetaDescription.IsNullOrWhiteSpace() ? metadata.MetaDescription : description;
+    }
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="@_variation.VariationContext.Culture">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <meta title="" />
-    <title></title>
+    <!-- Grundläggande meta-taggar -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO-meta taggar -->
+    <meta name="description" content="@Html.Raw(description)" />
+    <meta name="title" content="@Html.Raw(title)" />
+
+    <!-- Sidtitel -->
+    <title>@Html.Raw(title)</title>
+
+    <!-- Länka till CSS eller andra resurser -->
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
+
+
 <body>
     <div>
         @RenderBody()
     </div>
 </body>
+
+
 </html>
