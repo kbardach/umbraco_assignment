@@ -1,57 +1,81 @@
 ﻿/*NAVBAR*/
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+
+
+/* Body background */
+body {
+    background-color: #f7f7f7;
+}
+
+
+.my-navbar {
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .navbar-brand {
-    font-size: 1.25rem;
-    color: #fff !important;
+    color: #666 !important;
+    font-weight: bold;
 }
 
 .nav-link {
-    color: #202020 !important;
+    color: #444 !important;
+    margin-right: 0.5rem;
+    font-weight: 600 !important;
 }
 
-.nav-link.active {
-    color: #0d6efd;
+.nav-item .mx-1 {
+    padding: 0 0.2rem !important;
+    color: #444 !important; /* Adjust color if necessary */
 }
 
-.navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.1);
+span{
+    color: #444;
+    font-weight:500;
+}
+
+.icon-margin {
+    margin-right: 5px; /* Justera värdet för att flytta ikonen närmare eller längre bort från texten */
+}
+
+.d-flex.align-items-center > a {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0 0px;
+}
+
+form .form-control {
+    border-color: #ccc;
+    background-color: #fff !important;
+    color: #666 !important;
+    margin-left: 10px;
+}
+
+form .btn-outline-secondary {
+    color: #666;
+    border-color: #ccc;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,...");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(68, 68, 68, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Footer styling */
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
 }
 
-.form-control {
-    max-width: 200px;
-}
-
-.btn-outline-success {
-    color: #198754; 
-    border-color: #198754;
-}
-
-.form-control {
-    background-color: #454545 !important;
-}
-
-.btn-outline-success {
-    color: #8E8E8E !important;
-    border-color: #202020 !important;
-    background-color: #454545 !important;
-}
-
-    .btn-outline-success:hover {
-        color: #fff !important;
-        background-color: #454545 !important;
-        border-color: #8E8E8E !important;
+    footer a {
+        color: #666;
     }
 
-
-.bg-dark {
-    --bs-bg-opacity: 1;
-    background-color: black !important; /* Dark background */
-}
+    footer p {
+        color: #666;
+    }
 
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
