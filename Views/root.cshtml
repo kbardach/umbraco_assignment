@@ -1,21 +1,19 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@using umbraco_assignment.Models.Interfaces;
-@* @using umbraco_assignment.Models.ViewModels *@
+﻿@using System.Globalization
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using umbraco_assignment.Interfaces;
+
 @inject IVariationContextAccessor _variation;
 
-@inherits UmbracoViewPage
+@inherits UmbracoViewPage<IBaseContentModel>
 
 @{
     Layout = null;
 
-    var title = string.Empty;
-    var description = "Default description";
+    var metaDescription = Model.CurrentPage.StartPage.MetaDescription ?? string.Empty;
+    var gtm = string.Empty;
+    var canonicalUrl = Model.CurrentPage.Url(mode: UrlMode.Absolute, culture: CultureInfo.CurrentUICulture.Name);
 
-    if (Model is IPageModel model)
-    {
-        title = model.Content is ISeo seo && !seo.Title.IsNullOrWhiteSpace() ? seo.Title : Model.Name;
-        description = model.Content is IMetaData metadata && !metadata.MetaDescription.IsNullOrWhiteSpace() ? metadata.MetaDescription : description;
-    }
+    var title = Model.CurrentPage.StartPage.Title ?? string.Empty;
 }
 
 @* <!doctype html>

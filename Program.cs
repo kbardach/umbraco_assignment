@@ -1,3 +1,6 @@
+using Umbraco.Cms.Infrastructure.ModelsBuilder.Building;
+using umbraco_assignment.Business;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 //---------------------------------------- Profiler för lokala databaser --------------------------------------
@@ -12,6 +15,9 @@ builder.CreateUmbracoBuilder()
     .AddDeliveryApi()
     .AddComposers()
     .Build();
+
+
+builder.Services.AddSingleton<IModelsGenerator, CustomModelsGenerator>();
 
 WebApplication app = builder.Build();
 

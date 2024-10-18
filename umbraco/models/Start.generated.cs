@@ -15,12 +15,13 @@ using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Infrastructure.ModelsBuilder;
 using Umbraco.Cms.Core;
 using Umbraco.Extensions;
+using Umbraco.Cms.Core.Web;
 
-namespace Umbraco.Cms.Web.Common.PublishedModels
+namespace umbraco_assignment.Models.PublishedModels
 {
 	/// <summary>Start</summary>
 	[PublishedModel("start")]
-	public partial class Start : PublishedContentModel, IMetaData, ISeo
+	public partial class Start : BaseContentModel, IMetaData, ISeo
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -63,7 +64,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("metaDescription")]
-		public virtual string MetaDescription => global::Umbraco.Cms.Web.Common.PublishedModels.MetaData.GetMetaDescription(this, _publishedValueFallback);
+		public virtual string MetaDescription => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaDescription(this, _publishedValueFallback);
 
 		///<summary>
 		/// Title
@@ -71,6 +72,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("title")]
-		public virtual string Title => global::Umbraco.Cms.Web.Common.PublishedModels.Seo.GetTitle(this, _publishedValueFallback);
+		public virtual string Title => global::umbraco_assignment.Models.PublishedModels.Seo.GetTitle(this, _publishedValueFallback);
 	}
 }

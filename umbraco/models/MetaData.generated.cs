@@ -16,7 +16,7 @@ using Umbraco.Cms.Infrastructure.ModelsBuilder;
 using Umbraco.Cms.Core;
 using Umbraco.Extensions;
 
-namespace Umbraco.Cms.Web.Common.PublishedModels
+namespace umbraco_assignment.Models.PublishedModels
 {
 	// Mixin Content Type with alias "metaData"
 	/// <summary>MetaData</summary>

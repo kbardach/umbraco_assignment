@@ -1,10 +1,9 @@
 ﻿using Umbraco.Cms.Core.Web;
-using Umbraco.Cms.Web.Common.PublishedModels;
-using umbraco_assignment.Models.kim_umbraco.Models;
+using umbraco_assignment.Models.PublishedModels;
 
 namespace umbraco_assignment.Models.ViewModels
 {
-    public class StartPageViewModel : BasePageModel<Start>
+    public class StartPageViewModel : BasePageViewModel<Start>
     {
         public StartPageViewModel(Start content, IUmbracoContextAccessor umbracoContextAccessor) : base(content, umbracoContextAccessor)
         {

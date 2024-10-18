@@ -15,12 +15,13 @@ using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Infrastructure.ModelsBuilder;
 using Umbraco.Cms.Core;
 using Umbraco.Extensions;
+using Umbraco.Cms.Core.Web;
 
-namespace Umbraco.Cms.Web.Common.PublishedModels
+namespace umbraco_assignment.Models.PublishedModels
 {
 	/// <summary>Settings</summary>
 	[PublishedModel("settings")]
-	public partial class Settings : PublishedContentModel
+	public partial class Settings : BaseContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant

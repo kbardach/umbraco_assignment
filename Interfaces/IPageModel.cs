@@ -1,6 +1,6 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace umbraco_assignment.Models.Interfaces
+namespace umbraco_assignment.Interfaces
 {
     public interface IPageModel : IPublishedContent
     {
