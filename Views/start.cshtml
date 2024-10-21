@@ -1,12 +1,26 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using umbraco_assignment.Models.PublishedModels
 @using umbraco_assignment.Models.ViewModels
 
 @inherits UmbracoViewPage<StartPageViewModel>
 
 @{
 	Layout = "root.cshtml";
+	// var restaurants = Model.SettingsPage.Restaurants.Children<Restaurant>();
 }
 
 <h1>@Html.Raw(Model.Content.Heading)</h1>
 <h1>@Html.Raw(Model.Content.Name)</h1>
 <h1>@Html.Raw(Model.SettingsPage.Name)</h1>
+
+@* @foreach (var restaurant in restaurants)
+{
+	<h1>@Html.Raw(restaurant.Name)</h1>
+	<h1>@Html.Raw(restaurant.Address)</h1>
+	<h1>@Html.Raw(restaurant.Description)</h1>
+
+	@foreach (var image in restaurant.Images)
+	{
+		<img src="@image.Url()" alt="@restaurant.Name" style="width: 200px;" />
+	}
+} *@

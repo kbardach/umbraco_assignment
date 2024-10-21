@@ -64,7 +64,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("category")]
-		public virtual string Category => this.Value<string>(_publishedValueFallback, "category");
+		public virtual global::System.Collections.Generic.IEnumerable<string> Category => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "category");
 
 		///<summary>
 		/// Description
