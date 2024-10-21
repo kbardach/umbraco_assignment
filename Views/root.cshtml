@@ -59,41 +59,44 @@
 </head>
 
 <body>
-    <!-- Navigation bar -->
-    <header data-bs-theme="dark">
-        <nav class="navbar navbar-expand-md my-navbar fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">F&K</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex align-items-center" role="search">
-                        <div class="d-flex align-items-center">
-                            <a class="nav-link active" href="/sv"><i class="fa-solid fa-globe icon-margin"></i> SV</a>
-                            <span class="mx-1">|</span>
-                            <a class="nav-link active" href="/en">EN</a>
-                        </div>
-                        <input class="form-control me-2" type="search" placeholder="Sök" aria-label="Search">
-                        <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
+    <div class="page-wrapper">
+        <!-- Navigation bar -->
+        <header data-bs-theme="dark">
+            <nav class="navbar navbar-expand-md my-navbar fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">F&K</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex align-items-center" role="search">
+                            <div class="d-flex align-items-center">
+                                <a class="nav-link active" href="/sv"><i class="fa-solid fa-globe icon-margin"></i> SV</a>
+                                <span class="mx-1">|</span>
+                                <a class="nav-link active" href="/en">EN</a>
+                            </div>
+                            <input class="form-control me-2" type="search" placeholder="Sök" aria-label="Search">
+                            <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
+        <main class="content">
+            @RenderBody()
+        </main>
 
-    @RenderBody()
-
-    <!-- FOOTER -->
-    <footer class="container">
-        <p class="float-end"><a href="#">Back to top</a></p>
-        <p>&copy; 2017–2024 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-    </footer>
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-end"><a href="#">Back to top</a></p>
+            <p>&copy; 2017–2024 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+    </div>
 
     <script src="https://kit.fontawesome.com/b40f711039.js" crossorigin="anonymous"></script>
     <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
