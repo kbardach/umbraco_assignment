@@ -17,6 +17,7 @@ body {
 
 .content {
     flex: 1; /* Makes the content area take up available space */
+    margin: 100px 50px;
 }
 
 .my-navbar {
@@ -72,20 +73,63 @@ form .btn-outline-secondary {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(68, 68, 68, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Category card styling */
 
-/* Footer styling */
-/*footer {
-    background-color: #f0f0f0;
-    padding: 20px;
+.category-card {
+    position: relative;
+    padding-top: 56.25%; 
+    background-size: cover;
+    background-position: center;
+    border: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit; 
+    transition: transform 0.3s;
 }
 
-    footer a {
-        color: #666;
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+    .category-card .card-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 1em;
+        font-weight: 600;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 11px 20px;
+        border-radius: 5px;
+        width: 50%;
+        max-width: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    footer p {
-        color: #666;
-    }*/
+@media (max-width: 576px) {
+    .category-card .card-text {
+        font-size: 1.2em;
+        padding: 8px 16px;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .category-card .card-text {
+        font-size: 1.2em;
+        padding: 8px 16px;
+    }
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Footer styling */
+
 
 footer.container {
     background-color: #f8f9fa;

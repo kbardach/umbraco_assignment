@@ -8,12 +8,30 @@
 	Layout = "root.cshtml";
 	 var categories = Model.SettingsPage.Categories.Children<Category>();
 }
-@foreach (var category in categories)
+@* @foreach (var category in categories)
 {
 	<h1>@Html.Raw(category.DisplayName)</h1>
-} 
+	<img @Html.Raw(category.Image) alt="test" style="width: 200px"/>
+}  *@
 
-<h1>@Html.Raw(Model.Content.Heading)</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        @foreach (var category in categories)
+        {
+            <div class="col-12 col-sm-6 col-md-6 col-lg-5 mb-4">
+                <a href="#" class="card category-card" style="background-image: url('@category.Image');">
+                    <div class="card-text">
+                        @Html.Raw(category.DisplayName)
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@* <h1>@Html.Raw(Model.Content.Heading)</h1>
 <h1>@Html.Raw(Model.Content.Name)</h1>
-<h1>@Html.Raw(Model.SettingsPage.Name)</h1>
+<h1>@Html.Raw(Model.SettingsPage.Name)</h1> *@
 
