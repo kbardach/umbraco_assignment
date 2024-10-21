@@ -51,6 +51,14 @@ namespace umbraco_assignment.Models.PublishedModels
 		// properties
 
 		///<summary>
+		/// Categories
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("categories")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Categories => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "categories");
+
+		///<summary>
 		/// Restaurants
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
