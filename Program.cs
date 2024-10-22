@@ -1,5 +1,8 @@
 using Umbraco.Cms.Infrastructure.ModelsBuilder.Building;
 using umbraco_assignment.Business;
+//-------------------------------tillagt för azureBlob-------------------------
+using Umbraco.StorageProviders.AzureBlob;
+//-----------------------------------------------------------------------------
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,9 @@ builder.CreateUmbracoBuilder()
     .AddWebsite()
     .AddDeliveryApi()
     .AddComposers()
+    //-------------------------------tillagt för azureBlob-------------------------
+    .AddAzureBlobMediaFileSystem()
+    //-----------------------------------------------------------------------------
     .Build();
 
 
