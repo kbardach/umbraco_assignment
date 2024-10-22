@@ -30,6 +30,11 @@ body {
     font-weight: bold;
 }
 
+.active-language {
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
+
 .nav-link {
     color: #444 !important;
     margin-right: 0.5rem;

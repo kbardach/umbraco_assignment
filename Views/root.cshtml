@@ -60,6 +60,7 @@
 
 <body>
     <div class="page-wrapper">
+
         <!-- Navigation bar -->
         <header data-bs-theme="dark">
             <nav class="navbar navbar-expand-md my-navbar fixed-top">
@@ -76,9 +77,10 @@
                         </ul>
                         <form class="d-flex align-items-center" role="search">
                             <div class="d-flex align-items-center">
-                                <a class="nav-link active" href="/sv"><i class="fa-solid fa-globe icon-margin"></i> SV</a>
+                                <i class="fa-solid fa-globe icon-margin"></i>
+                                <a class="nav-link" href="/sv" id="sv-link">SV</a>
                                 <span class="mx-1">|</span>
-                                <a class="nav-link active" href="/en">EN</a>
+                                <a class="nav-link" href="/en" id="en-link">EN</a>
                             </div>
                             <input class="form-control me-2" type="search" placeholder="Sök" aria-label="Search">
                             <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -87,6 +89,9 @@
                 </div>
             </nav>
         </header>
+
+        <script src="/js/script.js"></script>
+
         <main class="content">
             @RenderBody()
         </main>
