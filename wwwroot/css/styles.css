@@ -82,6 +82,7 @@ form .btn-outline-secondary {
 
 
 .active-language {
+
     text-decoration: underline;
     font-weight: bold;
 }
@@ -117,7 +118,7 @@ form .btn-outline-secondary {
         font-size: 1em;
         font-weight: 600;
         text-align: center;
-        background-color: #444 !important;
+        background-color: hsla(9, 100%, 64%, 0.5);
         background: rgba(0, 0, 0, 0.5);
         padding: 11px 20px;
         border-radius: 5px;
