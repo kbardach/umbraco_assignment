@@ -1,0 +1,9 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using umbraco_assignment.Models.PublishedModels
+@using umbraco_assignment.Models.ViewModels
+
+@inherits UmbracoViewPage<CategoryPageViewModel>
+@{
+	Layout = "root.cshtml";
+}
+<h1>@Model.Content.Name</h1>
