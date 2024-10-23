@@ -219,20 +219,21 @@ footer a {
     font-size: 2rem !important;
 }
 
-    .carousel-caption .btn {
-        background-color: transparent !important; /* Transparent background */
-        border: 2px solid white !important; /* White border */
-        color: white !important; /* White text */
-        font-weight: bold !important; /* Bold text */
-        padding: 10px 20px !important; /* Adjust padding */
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important; /* Shadow */
-        transition: transform 0.3s ease, box-shadow 0.3s ease !important; /* Smooth transition */
-    }
+.carousel-caption .btn {
+background-color: transparent; 
+border: 2px solid white; 
+color: white; 
+font-weight: bold; 
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
 
-        .carousel-caption .btn:hover {
-            transform: translateY(-5px) !important; /* Moves the button upwards by 5px */
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3) !important; /* Increase shadow on hover */
-        }
+.carousel-caption .btn:hover {
+transform: translateY(-5px); 
+box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+background-color: transparent !important;
+border: 2px solid white !important;
+}
 
 
 @media (min-width: 1200px) {
@@ -265,6 +266,10 @@ footer a {
         font-size: 1.5rem !important;
     }
 
+        .carousel-caption .btn {
+            padding: 8px 16px;
+            font-size: 0.9rem; 
+        }
 }
 
 
