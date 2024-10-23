@@ -59,6 +59,14 @@ namespace umbraco_assignment.Models.PublishedModels
 		public virtual string AltText => this.Value<string>(_publishedValueFallback, "altText");
 
 		///<summary>
+		/// Button
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("button")]
+		public virtual string Button => this.Value<string>(_publishedValueFallback, "button");
+
+		///<summary>
 		/// Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]

@@ -175,15 +175,87 @@ footer a {
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
 /* Slideshow styling */
 
-.carousel-poster {
+.carousel-item img {
     width: 100%;
-    height: 100%;
+    height: 500px;
+    object-fit: cover !important;
+}
+
+.carousel {
+    height: 500px;
+    margin-bottom: 20px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 35% !important;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 5px; 
 }
 
 .carousel-indicators button {
-    background-color: #000;
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 50% !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
     border: none;
+    transition: background-color 0.3s ease ;
+}
+
+    .carousel-indicators .active {
+        background-color: rgba(255, 255, 255, 1) !important;
+    }
+
+.carousel-caption {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+.carousel-caption h1 {
+    font-size: 2rem !important;
+}
+
+    .carousel-caption .btn {
+        margin-bottom: 0 !important; /* Ensures no margin below the button */
+        background-color:gray
+    }
+
+@media (min-width: 1200px) {
+    .carousel-item img {
+        height: 600px !important;
+        object-fit: cover !important;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px
+    }
+
+    .carousel {
+        height: 300px
+    }
+
+    .carousel-indicators button {
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+    .carousel-caption{
+        bottom: 45% !important;
+    }
+
+    .carousel-caption h1 {
+        font-size: 1.5rem !important;
+    }
+
 }
 
 
-/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+

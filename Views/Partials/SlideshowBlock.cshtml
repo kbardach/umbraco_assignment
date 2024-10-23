@@ -14,8 +14,6 @@
     }
 }
 
-@if (slides != null && slides.Any())
-{
 <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
     <div class="carousel-indicators">
         @for (int i = 0; i < slides.Count(); i++)
@@ -30,26 +28,22 @@
         @for (int i = 0; i < slides.Count(); i++)
         {
             var active = (i == 0) ? "active" : null;
-                var image = slides[i]?.Image;
 
-                if (image != null)
-                {
             <div class="carousel-item @active">
                 <img src="@slides[i].Image.Url()" class="carousel-poster" alt="@slides[i].AltText" />
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>@slides[i].Name</h1>
-@*                         <p><a class="btn btn-lg btn-primary" href="@slides[i].Link.Url">Learn more</a></p>
- *@                    </div>
-                </div>
+                        <p>
+                            <a class="btn btn-lg btn-primary" href="javascript:void(0)">
+                                @slides[i].Button
+                            </a>
+                        </p>
                     </div>
-                }
-                else
-                {
-                    <p>Image not available for this slide.</p>
-                }
-        }
                 </div>
+            </div>
+        }
+    </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
