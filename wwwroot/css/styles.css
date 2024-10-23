@@ -220,9 +220,20 @@ footer a {
 }
 
     .carousel-caption .btn {
-        margin-bottom: 0 !important; /* Ensures no margin below the button */
-        background-color:gray
+        background-color: transparent !important; /* Transparent background */
+        border: 2px solid white !important; /* White border */
+        color: white !important; /* White text */
+        font-weight: bold !important; /* Bold text */
+        padding: 10px 20px !important; /* Adjust padding */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important; /* Shadow */
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important; /* Smooth transition */
     }
+
+        .carousel-caption .btn:hover {
+            transform: translateY(-5px) !important; /* Moves the button upwards by 5px */
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3) !important; /* Increase shadow on hover */
+        }
+
 
 @media (min-width: 1200px) {
     .carousel-item img {
