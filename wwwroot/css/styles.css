@@ -197,6 +197,11 @@ footer a {
     gap: 5px; 
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: none !important;
+}
+
 .carousel-indicators button {
     width: 15px !important;
     height: 15px !important;
