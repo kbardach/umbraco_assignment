@@ -8,58 +8,16 @@
 
     // Hämta bilden från kategorin
     var categoryImage = Model.Content.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("image");
+
+    // Hämta alla restauranger från settingssidan
     var restaurants = Model.SettingsPage.Restaurants.Children<Restaurant>();
+
+    // Definiera kategori (antingen ID eller namn beroende på din struktur)
+    var currentCategory = Model.Content.Name; // Till exempel om du vill matcha på kategorinamn
+
+    // Filtrera restauranger efter kategori
+    var filteredRestaurants = restaurants.Where(r => r.Category.Contains(currentCategory));
 }
-
-<style>
-    .large-image-wrapper {
-        width: 100%;
-        max-width: 600px; /* Anpassa storleken efter behov */
-        max
-        margin-bottom: 20px;
-    }
-
-    .large-image {
-        width: 100%;
-        height: 600px; /* Gör den kvadratisk */
-        object-fit: cover; /* För att bibehålla bildens proportioner */
-    }
-
-    .small-image {
-        width: 100%;
-        height: 150px; /* Gör alla små bilder lika stora */
-        object-fit: cover;
-    }
-
-    .card-body {
-        padding: 10px;
-    }
-
-    .category-card {
-        text-decoration: none;
-        border: none;
-        background-color: #f8f9fa;
-        transition: transform 0.2s;
-    }
-
-        .category-card:hover {
-            transform: scale(1.05); /* Skala upp kortet vid hovring */
-        }
-
-    .card-text {
-        font-weight: bold;
-        margin-top: 10px;
-        text-align: center;
-        color: black; /* Se till att texten är svart */
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-</style>
 
 <div class="container mt-5">
     <div class="row">
@@ -76,24 +34,122 @@
                 }
             </div>
             <!-- Rubrik under bilden -->
-            <h1 class="section-title">Svenska klassiker</h1>
+            <h1>@Model.Content.Name</h1>
         </div>
 
-        <!-- Högra kolumnen med statiska klickbara restauranger -->
+        <!-- Högra kolumnen med dynamiskt genererade filtrerade restaurangkort -->
         <div class="col-lg-6">
             <div class="row">
-                @foreach (var restaurant in restaurants)
+                @if (filteredRestaurants.Any())
                 {
-                    <div cclass="col-6 mb-4">
-                        <a href="link_to_restaurant1" class="card text-center category-card">
-                            <img src="@restaurant.Url()" class="card-img-top small-image" alt="Den Gyldene Freden" style="background-image: url('@restaurant.FrontImage.Url()');">
-                            <div class="card-body">
-                                <p>@Html.Raw(restaurant.RestaurantName)</p>
-                            </div>
-                        </a>
-                    </div>
+                    @foreach (var restaurant in filteredRestaurants)
+                    {
+                        <div class="col-6 mb-4">
+                            <a href="@restaurant.Url()" class="card text-center category-card">
+                                <img src="@restaurant.FrontImage.Url()" class="card-img-top small-image" alt="@restaurant.RestaurantName">
+                                <div class="card-body">
+                                    <p>@Html.Raw(restaurant.RestaurantName)</p>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>Inga restauranger tillhör denna kategori.</p>
                 }
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+<style>
+    /* För den stora bilden på vänster sida */
+    .large-image-wrapper {
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+
+    .large-image {
+        width: 100%;
+        height: 400px; /* Justera höjden på den stora bilden */
+        object-fit: cover; /* För att behålla bildens proportioner */
+    }
+
+    /* För småbilderna på höger sida */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-6 {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .category-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: #f8f9fa;
+        border: none;
+        width: 100%;
+        transition: transform 0.2s;
+    }
+
+    .category-card:hover {
+        transform: scale(1.05);
+    }
+
+    .small-image {
+        width: 100%;
+        height: 150px; /* Justera höjden för att matcha småbilderna */
+        object-fit: cover; /* Gör bilderna kvadratiska och bibehåll proportionerna */
+    }
+
+    /* Anpassa textstorleken för restaurangnamnen */
+    .card-body p {
+        font-size: 14px;
+        font-weight: bold;
+        color: black;
+        margin-top: 10px;
+    }
+
+    /* För rubriken över den stora bilden */
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Justering för att säkerställa att restaurangbilderna tar upp rätt utrymme */
+    .col-lg-6 .row .col-6 {
+        width: 50%; /* Se till att varje restaurang tar upp hälften av utrymmet */
+    }
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
+<h1>@Model.Content.Name</h1> *@
