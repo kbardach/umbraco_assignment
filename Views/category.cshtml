@@ -4,6 +4,96 @@
 
 @inherits UmbracoViewPage<CategoryPageViewModel>
 @{
-	Layout = "root.cshtml";
+    Layout = "root.cshtml";
+
+    // Hämta bilden från kategorin
+    var categoryImage = Model.Content.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("image");
+    var restaurants = Model.SettingsPage.Restaurants.Children<Restaurant>();
 }
-<h1>@Model.Content.Name</h1>
+
+<style>
+    .large-image-wrapper {
+        width: 100%;
+        max-width: 600px; /* Anpassa storleken efter behov */
+        max
+        margin-bottom: 20px;
+    }
+
+    .large-image {
+        width: 100%;
+        height: 600px; /* Gör den kvadratisk */
+        object-fit: cover; /* För att bibehålla bildens proportioner */
+    }
+
+    .small-image {
+        width: 100%;
+        height: 150px; /* Gör alla små bilder lika stora */
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .category-card {
+        text-decoration: none;
+        border: none;
+        background-color: #f8f9fa;
+        transition: transform 0.2s;
+    }
+
+        .category-card:hover {
+            transform: scale(1.05); /* Skala upp kortet vid hovring */
+        }
+
+    .card-text {
+        font-weight: bold;
+        margin-top: 10px;
+        text-align: center;
+        color: black; /* Se till att texten är svart */
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Vänstra kolumnen med stor bild och rubrik -->
+        <div class="col-lg-6 d-flex flex-column align-items-center">
+            <div class="large-image-wrapper">
+                @if (categoryImage != null)
+                {
+                    <img src="@categoryImage.Url()" alt="@Model.Content.Name" class="img-fluid large-image" />
+                }
+                else
+                {
+                    <p>Ingen bild tillgänglig</p>
+                }
+            </div>
+            <!-- Rubrik under bilden -->
+            <h1 class="section-title">Svenska klassiker</h1>
+        </div>
+
+        <!-- Högra kolumnen med statiska klickbara restauranger -->
+        <div class="col-lg-6">
+            <div class="row">
+                @foreach (var restaurant in restaurants)
+                {
+                    <div cclass="col-6 mb-4">
+                        <a href="link_to_restaurant1" class="card text-center category-card">
+                            <img src="@restaurant.Url()" class="card-img-top small-image" alt="Den Gyldene Freden" style="background-image: url('@restaurant.FrontImage.Url()');">
+                            <div class="card-body">
+                                <p>@Html.Raw(restaurant.RestaurantName)</p>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
