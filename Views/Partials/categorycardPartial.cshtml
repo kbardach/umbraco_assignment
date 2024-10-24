@@ -1,0 +1,20 @@
+﻿@using umbraco_assignment.Models.PublishedModels
+@using umbraco_assignment.Models.ViewModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<StartPageViewModel>
+
+
+<div class="row justify-content-center">
+    @foreach (var category in Model.Categories)
+    {
+        <div class="col-12 col-sm-6 col-md-6 col-lg-5 mb-4">
+            <a href="@category.Url()" class="card category-card" style="background-image: url('@category.Image.Url()');">
+                <div class="card-text">
+                    @Html.Raw(category.DisplayName)
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+
+

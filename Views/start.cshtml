@@ -7,8 +7,7 @@
 
 @{
 	Layout = "root.cshtml";
-	 var categories = Model.SettingsPage.Categories.Children<Category>();
-    var blockGrid = Model.Value<BlockGridModel>("content", fallback: Fallback.ToLanguage);
+    var blockGrid = Model.Value<BlockGridModel>("content"/* , fallback: Fallback.ToLanguage */);
 
 }
 
@@ -32,18 +31,27 @@
 
 
  <div class="container">
-    <div class="row justify-content-center">
-        @foreach (var category in categories)
-        {
-            <div class="col-12 col-sm-6 col-md-6 col-lg-5 mb-4">
-                <a href="@category.Url()" class="card category-card" style="background-image: url('@category.Image.Url()');">
-                    <div class="card-text">
-                        @Html.Raw(category.DisplayName)
-                    </div>
-                </a>
-            </div>
-        }
-    </div>
+    @await Html.PartialAsync("categorycardPartial") @*flyttade ut HTML till en Partial*@
 </div> 
 
+
+
+@* <h1>@Html.Raw(Model.Content.Heading)</h1>
+<h1>@Html.Raw(Model.Content.Name)</h1>
+<h1>@Html.Raw(Model.SettingsPage.Name)</h1> *@
+
+
+@* <h1>@Html.Raw(Model.Content.Heading)</h1>
+<h1>@Html.Raw(Model.Content.Name)</h1>
+<h1>@Html.Raw(Model.SettingsPage.Name)</h1> *@
+
+
+@* <h1>@Html.Raw(Model.Content.Heading)</h1>
+<h1>@Html.Raw(Model.Content.Name)</h1>
+<h1>@Html.Raw(Model.SettingsPage.Name)</h1> *@
+
+
+@* <h1>@Html.Raw(Model.Content.Heading)</h1>
+<h1>@Html.Raw(Model.Content.Name)</h1>
+<h1>@Html.Raw(Model.SettingsPage.Name)</h1> *@
 

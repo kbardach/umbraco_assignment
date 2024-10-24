@@ -1,0 +1,25 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using umbraco_assignment.Models.ViewModels
+
+@inherits UmbracoViewPage<ErrorPageViewModel>
+
+@{
+
+	Layout = "root.cshtml";
+}
+
+<div class="error-page">
+    <div class="error-content">
+        <h1>@Model.Content.Heading</h1>
+        <p>@Model.Content.Description</p>
+
+        @if (Model.Content.Link != null && Model.Content.Link.Any())
+        {
+            <a href="@Model.Content.Link.First().Url" target="@Model.Content.Link.First().Target" class="btn-error">
+                @Model.Content.Button
+            </a>
+        }
+    </div>
+</div>
+
+
