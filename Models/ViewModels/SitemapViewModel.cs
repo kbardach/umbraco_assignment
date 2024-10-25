@@ -3,7 +3,7 @@ using Umbraco.Cms.Core.Web;
 using umbraco_assignment.Models.PublishedModels;
 using umbraco_assignment.Models.ViewModels;
 
-namespace Nackademin_Umbraco_001.Models.ViewModels
+namespace umbraco_assignment.Models.ViewModels
 {
     public class SitemapViewModel : BasePageViewModel<Sitemap>
     {

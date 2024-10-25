@@ -2,6 +2,8 @@ using Umbraco.Cms.Infrastructure.ModelsBuilder.Building;
 using umbraco_assignment.Business;
 //-------------------------------tillagt för azureBlob-------------------------
 using Umbraco.StorageProviders.AzureBlob;
+using umbraco_assignment.Business.Services.Interfaces;
+using umbraco_assignment.Business.Services;
 //-----------------------------------------------------------------------------
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -24,6 +26,7 @@ builder.CreateUmbracoBuilder()
 
 
 builder.Services.AddSingleton<IModelsGenerator, CustomModelsGenerator>();
+builder.Services.AddScoped<ISitemapService, SitemapService>();
 
 WebApplication app = builder.Build();
 
