@@ -1,0 +1,7 @@
+﻿﻿{
+    "name": "MetaRobots",
+    "version": "1.0.0",
+    "javascript": [
+        "~/App_Plugins/MetaRobots/setDefaultMetaRobots.js"
+    ]
+}
