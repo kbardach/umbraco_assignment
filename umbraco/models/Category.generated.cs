@@ -21,7 +21,7 @@ namespace umbraco_assignment.Models.PublishedModels
 {
 	/// <summary>Category</summary>
 	[PublishedModel("category")]
-	public partial class Category : BaseContentModel
+	public partial class Category : BaseContentModel, IMetaData, ISeo
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -65,5 +65,21 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("image")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Image => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "image");
+
+		///<summary>
+		/// MetaDescription
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaDescription")]
+		public virtual string MetaDescription => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("title")]
+		public virtual string Title => global::umbraco_assignment.Models.PublishedModels.Seo.GetTitle(this, _publishedValueFallback);
 	}
 }

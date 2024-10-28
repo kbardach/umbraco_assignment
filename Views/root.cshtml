@@ -9,12 +9,69 @@
 @{
     Layout = null;
 
-    var metaDescription = Model.CurrentPage.StartPage.MetaDescription ?? string.Empty;
-    var gtm = string.Empty;
-    var canonicalUrl = Model.CurrentPage.Url(mode: UrlMode.Absolute, culture: CultureInfo.CurrentUICulture.Name);
+    // var gtm = string.Empty;
 
-    var title = Model.CurrentPage.StartPage.Title ?? string.Empty;
+    // var metaDescription = Model.CurrentPage.StartPage.MetaDescription ?? string.Empty;
+    
+    // var canonicalUrl = Model.CurrentPage.Url(mode: UrlMode.Absolute, culture: CultureInfo.CurrentUICulture.Name);
+
+    // var title = Model.CurrentPage.StartPage.Title ?? string.Empty;
+
+    var gtm = string.Empty;
+    var metaDescription = Model.CurrentPage.Value<string>("metaDescription") ?? string.Empty;
+    var title = Model.CurrentPage.Value<string>("title") ?? Model.CurrentPage.Name;
+    var canonicalUrl = Model.CurrentPage.Url(mode: UrlMode.Absolute, culture: CultureInfo.CurrentUICulture.Name);
 }
+   
+
+<!doctype html>
+<html lang="@_variation.VariationContext.Culture" data-bs-theme="auto">
+    <head>
+        <base href="~/">
+        <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Linking stylesheets -->
+        <link rel="stylesheet" href="/css/styles.css">
+
+        <!-- SEO-meta taggar -->
+        <meta name="description" content="@Html.Raw(metaDescription)" />
+        <meta name="title" content="@Html.Raw(title)" />
+
+        <!-- Sidtitel -->
+        <title>@Html.Raw(title)</title>
+
+        <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://getbootstrap.com/docs/5.3/examples/carousel/carousel.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="page-wrapper">
+
+            <!-- Navigation bar -->
+            @await Html.PartialAsync("navbarPartial")
+
+            <script src="/js/script.js"></script>
+
+            <main class="content">
+                @RenderBody()
+            </main>
+
+            <!-- FOOTER -->
+            @await Html.PartialAsync("footerPartial")
+        </div>
+
+        <script src="/js/script.js"></script>
+        <script src="https://kit.fontawesome.com/b40f711039.js" crossorigin="anonymous"></script>
+        <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://getbootstrap.com/docs/5.3/examples/carousel/iUSfqrIpmhX1ciLY_yojCnRuisgapeSCiClJ6OoZaIpE-EevoAOj3Eiknjy6eSm7oVf6yKeyk8Dh_M0eblwivQ=="></script>
+        <script type="text/javascript" src="https://getbootstrap.com/docs/5.3/examples/carousel/iTfYf8_-gcWRVADunqm74u4VY8L-XkTBlAlgKmjOCZdvdkV7L5BxmimJ9MRr8u73ja_0JTGAQDbfDHKUHa8Dmg=="></script>
+
+    </body>
+</html>
+
 
 @* <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -39,47 +96,3 @@
     <!-- Sidtitel -->
     <title>@Html.Raw(title)</title>
   *@
-   
-
-<!doctype html>
-<html lang="@_variation.VariationContext.Culture" data-bs-theme="auto">
-<head>
-    <base href="~/">
-    <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Linking stylesheets -->
-    <link rel="stylesheet" href="/css/styles.css">
-
-    <title>@Html.Raw(title)</title>
-
-    <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/5.3/examples/carousel/carousel.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="page-wrapper">
-
-        <!-- Navigation bar -->
-        @await Html.PartialAsync("navbarPartial")
-
-        <script src="/js/script.js"></script>
-
-        <main class="content">
-            @RenderBody()
-        </main>
-
-        <!-- FOOTER -->
-        @await Html.PartialAsync("footerPartial")
-    </div>
-
-    <script src="/js/script.js"></script>
-    <script src="https://kit.fontawesome.com/b40f711039.js" crossorigin="anonymous"></script>
-    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://getbootstrap.com/docs/5.3/examples/carousel/iUSfqrIpmhX1ciLY_yojCnRuisgapeSCiClJ6OoZaIpE-EevoAOj3Eiknjy6eSm7oVf6yKeyk8Dh_M0eblwivQ=="></script>
-    <script type="text/javascript" src="https://getbootstrap.com/docs/5.3/examples/carousel/iTfYf8_-gcWRVADunqm74u4VY8L-XkTBlAlgKmjOCZdvdkV7L5BxmimJ9MRr8u73ja_0JTGAQDbfDHKUHa8Dmg=="></script>
-
-</body>
-</html>
