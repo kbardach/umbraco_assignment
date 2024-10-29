@@ -85,9 +85,34 @@ form .btn-outline-secondary {
     font-weight: bold;
 }
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
-/* Category card styling */
+/* text info styling */
 
-.category-card {
+
+.custom-text {
+    max-width: 800px; 
+    line-height: 1.6;
+    color: #333;
+    padding: 0 15px; 
+}
+
+
+    @media (max-width: 768px) {
+        .custom-text {
+            font-size: 1em;
+            padding: 0 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .custom-text {
+            font-size: 0.9em;
+            padding: 0 5px;
+        }
+    }
+    /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+    /* Category card styling */
+
+    .category-card {
     position: relative;
     padding-top: 56.25%;
     background-size: cover;
