@@ -1,4 +1,10 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@using umbraco_assignment.Interfaces
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IBaseContentModel>
+
+@{
+    var title = Model.CurrentPage.StartPage.Name;
+}
+
 <header data-bs-theme="dark">
     <nav class="navbar navbar-expand-md my-navbar fixed-top">
         <div class="container-fluid">
@@ -9,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">@Model.Name</a>
+                        <a class="nav-link active" aria-current="page" href="#">@Html.Raw(title)</a>
                     </li>
                 </ul>
                 <form class="d-flex align-items-center" role="search">
