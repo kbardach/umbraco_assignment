@@ -1,5 +1,6 @@
 ﻿/*NAVBAR*/
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 
 
 
@@ -27,6 +28,7 @@ body {
 .navbar-brand {
     color: #666 !important;
     font-weight: bold;
+    font-family: Koulen;
 }
 
 .active-language {
