@@ -4,6 +4,14 @@
 
 @{
     Layout = "root.cshtml";
+    var images = Model.Content.Images?.Select(image => image.Url()) ?? Enumerable.Empty<string>();
 }
 
-<h1>Model</h1>
+<h1>@Model.Content.RestaurantName</h1>
+<h1>@Model.Content.Address</h1>
+<h1>@Model.Content.Description</h1>
+
+@foreach (var item in images)
+{
+    <img src="@item" alt="@Model.Content.RestaurantName" />
+}
