@@ -26,6 +26,14 @@ function highlightSelectedLanguage() {
     }
 }
 
+//document.addEventListener('DOMContentLoaded', function () {
+//    const form = document.getElementById('search-form');
+//    const currentCulture = window.location.pathname.split('/')[1]; // Assumes the culture is the first part of the path
+
+//    // Update the form action based on current culture
+//    form.action = `/${currentCulture}/search`;
+//});
+
 // Event listeners to set language when links are clicked
 document.getElementById('sv-link').addEventListener('click', function () {
     setLanguage('sv');
@@ -39,3 +47,11 @@ document.getElementById('en-link').addEventListener('click', function () {
 window.onload = function () {
     highlightSelectedLanguage();  // Highlight language on page load
 }
+
+//-----------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------Bildspel för restauranger--------------------------------------------------------
+
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------

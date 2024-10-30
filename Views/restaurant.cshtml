@@ -2,7 +2,127 @@
 @using umbraco_assignment.Models.ViewModels
 @inherits UmbracoViewPage<RestaurantPageViewModel>
 
+
 @{
+    Layout = "root.cshtml";
+    var imageUrls = Model.Content.Images?.Select(image => image.Url()).ToList() ?? new List<string>();
+    var mainImageUrl = imageUrls.FirstOrDefault(); // För att visa första bilden som huvudbild initialt
+}
+
+<h1>@Model.Content.RestaurantName</h1>
+
+<div class="image-gallery">
+    <!-- Stora huvudbilden med vänster och höger pilar -->
+    <div class="main-image">
+        <button class="nav-button left" onclick="prevImage()">&#10094;</button>
+        <img id="mainImage" src="@mainImageUrl" alt="@Model.Content.RestaurantName" />
+        <button class="nav-button right" onclick="nextImage()">&#10095;</button>
+    </div>
+
+    <!-- Små miniatyrbilder under huvudbilden -->
+    <div class="thumbnail-container">
+        @foreach (var imageUrl in imageUrls)
+        {
+            <img src="@imageUrl" alt="@Model.Content.RestaurantName" class="thumbnail" onclick="changeMainImage('@imageUrl')" />
+        }
+    </div>
+</div>
+
+<p>@Model.Content.Description</p>
+
+<script>
+    // Array med bild-URL:er och aktuell bildindex
+    const imageUrls = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(imageUrls));
+    let currentIndex = 0;
+
+    function changeMainImage(imageUrl) {
+        document.getElementById("mainImage").src = imageUrl;
+        currentIndex = imageUrls.indexOf(imageUrl); // Uppdatera aktuell bildindex
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % imageUrls.length; // Öka index och loopa runt
+        document.getElementById("mainImage").src = imageUrls[currentIndex];
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length; // Minska index och loopa runt
+        document.getElementById("mainImage").src = imageUrls[currentIndex];
+    }
+</script>
+
+<style>
+    .image-gallery {
+        text-align: center;
+        position: relative;
+        display: inline-block;
+    }
+
+    .main-image {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        height: 400px; /* Fast höjd för huvudbild */
+        overflow: hidden;
+        margin: auto;
+    }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ger enhetlig storlek utan deformation */
+        }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        font-size: 24px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+        z-index: 10;
+        transform: translateY(-50%);
+    }
+
+    .left {
+        left: 0;
+    }
+
+    .right {
+        right: 0;
+    }
+
+    .nav-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .thumbnail-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .thumbnail {
+        width: 80px; /* Justerat för mindre storlek */
+        height: 80px; /* Justerat för mindre storlek */
+        object-fit: cover; /* Gör att bilden täcker hela rutan utan deformation */
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+</style>
+
+
+
+
+
+@* @{
     Layout = "root.cshtml";
     var images = Model.Content.Images?.Select(image => image.Url()) ?? Enumerable.Empty<string>();
 }
@@ -14,4 +134,4 @@
 @foreach (var item in images)
 {
     <img src="@item" alt="@Model.Content.RestaurantName" />
-}
+} *@
