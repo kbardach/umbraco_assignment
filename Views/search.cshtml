@@ -1,0 +1,24 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using umbraco_assignment.Models.PublishedModels
+@using umbraco_assignment.Models.ViewModels
+
+@inherits UmbracoViewPage<SearchPageViewModel>
+
+@{
+    Layout = "root.cshtml";
+}
+
+<section class="search-results">
+    <div class="row">
+        @foreach (var restaurant in Model.Restaurants)
+        {
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <a href="@restaurant.Url()" class="card restaurant-card" style="background-image: url('@restaurant.FrontImage?.Url()');">
+                    <div class="card-text">
+                        @Html.Raw(restaurant.Name)
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</section>

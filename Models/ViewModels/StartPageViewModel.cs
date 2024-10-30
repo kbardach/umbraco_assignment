@@ -8,7 +8,7 @@ namespace umbraco_assignment.Models.ViewModels
         public StartPageViewModel(Start content, IUmbracoContextAccessor umbracoContextAccessor) : base(content, umbracoContextAccessor)
         {
             Categories = SettingsPage.Categories.Children<Category>();
-		}
+        }
 
         public IEnumerable<Category> Categories { get; set; }
     }
