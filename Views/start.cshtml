@@ -29,13 +29,16 @@
     }
 }
 
-<div class="container my-4 d-flex justify-content-center">
-    <p class="text-center lead custom-text">@Model.Content.InfoText</p>
+<div class="content-wrapper">
+    <div class="col-lg-6 d-flex justify-content-center justify-content-lg-center text-container">
+        <p class="text-center text-lg-start lead custom-text">@Model.Content.InfoText</p>
+    </div>
+
+    <div class="container category-container">
+        @await Html.PartialAsync("categorycardPartial") <!-- Flyttade ut HTML till en Partial -->
+    </div>
 </div>
 
- <div class="container">
-    @await Html.PartialAsync("categorycardPartial") @*flyttade ut HTML till en Partial*@
-</div> 
 
 
 
