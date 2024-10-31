@@ -32,8 +32,62 @@
         <div class="col-lg-6 col-md-12">
             <h1 class="restaurant-name">@Model.Content.RestaurantName</h1>
             <p class="restaurant-description">@Model.Content.Description</p>
+            <div class="reviews-section mt-5">
+                <h3>User Reviews</h3>
+                <div class="review-item border-bottom mb-3 pb-3">
+                    <!-- Review Content -->
+                    <p class="review-comment"><strong>@Model.Content.RestaurantName</strong> says:</p>
+                    <p class="review-text">Comment</p>
+
+                    <!-- Review Meta Information -->
+                    <div class="review-meta">
+                        <span class="review-rating text-warning"><i class="fas fa-star"></i> Rating</span>
+                        <span class="review-date text-muted">| @Model.Content.CreateDate.ToString("MMM dd, yyyy")</span>
+                    </div>
+                </div>
+
+                <p class="text-muted">No reviews available.</p>
+            </div>
         </div>
+
     </div>
+</div>
+<!-- Comment and Rating Form Card -->
+<div class="card shadow-lg border-0 rounded mb-4 commentForm">
+    <form method="post" action="">
+        <div class="card-body p-4">
+            <h4 class="card-title mb-4">Add a rating and a comment</h4>
+            <!-- Star Rating -->
+            <div class="mb-4">
+                <label for="rating" class="form-label"><strong>Rate @Model.Content.RestaurantName:</strong></label>
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">&#9733;</label>
+                    <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">&#9733;</label>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="name" class="form-label"><strong>Name: *</strong></label>
+                <input type="text" class="form-control" id="name" name="name" required />
+            </div>
+            <div class="mb-4">
+                <label for="commentTextarea" class="form-label"><strong>Leave a comment: *</strong></label>
+                <textarea class="form-control" id="commentTextarea" rows="4" placeholder="Write your comment here" name="comment" required></textarea>
+            </div>
+
+            <input type="hidden" id="imdbid" name="imdbid" value="" />
+            <input type="hidden" id="date" name="date" value="@DateTime.Now" />
+
+            <!-- Submit Button with Spinner -->
+            <button type="submit" class="btn btn-primary btn-lg shadow-sm" id="submitButton">
+                <span id="buttonText">Submit</span>
+                <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            </button>
+            <!-- } -->
+        </div>
+    </form>
 </div>
 
 <script>
@@ -125,4 +179,67 @@
             transform: scale(1.1);
         }
 
+    /* Form Styling */
+    .commentForm {
+        margin-top: 40px;
+    }
+
+    .card-body {
+        background-color: #f0f0f0
+    }
+
+    .form-control {
+        font-size: 1em;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .rating {
+        display: flex;
+        justify-content: left;
+        gap: 5px;
+        direction: rtl;
+    }
+
+        .rating input[type="radio"] {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 1.5em;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        .rating input[type="radio"]:checked ~ label {
+            color: gold;
+        }
+
+    /* Submit Button Styling */
+    #submitButton {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white !important;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        #submitButton:disabled {
+            background-color: #ccc;
+        }
+
+    #spinner {
+        display: inline-block;
+    }
 </style>
