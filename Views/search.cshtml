@@ -10,12 +10,12 @@
 
 <section class="search-results">
     <div class="row">
-        @foreach (var restaurant in Model.Restaurants)
+        @foreach (var restaurant in Model.SearchHits)
         {
             <div class="col-12 col-sm-6 col-md-4 mb-4">
                 <a href="@restaurant.Url()" class="card restaurant-card" style="background-image: url('@restaurant.FrontImage?.Url()');">
                     <div class="card-text">
-                        @Html.Raw(restaurant.Name)
+                        @Html.Raw(restaurant.RestaurantName)
                     </div>
                 </a>
             </div>

@@ -5,6 +5,6 @@ namespace umbraco_assignment.Business.Services.Interfaces
 {
     public interface IRestaurantService
     {
-        Task<List<Restaurant>> GetRestaurantWithDetailsAsync(string query);
+        Task<IEnumerable<Restaurant>> GetRestaurantWithDetailsAsync(string query);
     }
 }

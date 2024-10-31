@@ -18,7 +18,7 @@
     // var title = Model.CurrentPage.StartPage.Title ?? string.Empty;
 
     var gtm = string.Empty;
-    var metaDescription = Model.CurrentPage.Value<string>("metaDescription") ?? string.Empty;
+    var metaDescription = Model.CurrentPage.Value<string>("MetaDescription") ?? string.Empty;
     var title = Model.CurrentPage.Value<string>("title") ?? Model.CurrentPage.Name;
     var canonicalUrl = Model.CurrentPage.Url(mode: UrlMode.Absolute, culture: CultureInfo.CurrentUICulture.Name);
 }

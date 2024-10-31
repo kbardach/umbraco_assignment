@@ -27,11 +27,16 @@ namespace umbraco_assignment.Controllers.SurfaceControllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SearchRestaurants(string query)
         {
-            var searchPage = CurrentPage as Search;
+            var searchPage = CurrentPage as Search; //HUR KOMMER JAG ÅT SEARCHPAGE???? söker jag från startpage så kommer det vara en startpage, osv. @@@@@@@@@@@
+            var model = new SearchPageViewModel(searchPage, _umbracoContextAccessor);
 
-            var model = new SearchPageViewModel(searchPage, _umbracoContextAccessor)
+            if (_umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
             {
-                Restaurants = await _restaurantService.GetRestaurantWithDetailsAsync(query)
+                var rootContent = umbracoContext.Content.GetAtRoot().FirstOrDefault();
+                if (rootContent != null)
+                {
+                    model.SearchHits = await _restaurantService.GetRestaurantWithDetailsAsync(query);
+                }
             };
 
             return View("search", model);

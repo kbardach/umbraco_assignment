@@ -27,6 +27,7 @@ builder.CreateUmbracoBuilder()
 
 builder.Services.AddSingleton<IModelsGenerator, CustomModelsGenerator>();
 builder.Services.AddScoped<ISitemapService, SitemapService>();
+builder.Services.AddTransient<IRestaurantService, RestaurantService>();
 
 WebApplication app = builder.Build();
 
