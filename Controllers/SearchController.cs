@@ -15,7 +15,6 @@ namespace umbraco_assignment.Controllers
         {
             _umbracoContextAccessor = umbracoContextAccessor;
         }
-
         public override IActionResult Index()
         {
             var searchPage = CurrentPage as Search;
@@ -29,7 +28,6 @@ namespace umbraco_assignment.Controllers
 
             return null;
         }
-
     }
 }
 

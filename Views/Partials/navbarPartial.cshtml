@@ -1,6 +1,7 @@
 ﻿@using umbraco_assignment.Interfaces
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IBaseContentModel>
 
+
 @{
     var title = Model.CurrentPage.StartPage.Name;
 }
@@ -18,7 +19,16 @@
                         <a class="nav-link active" aria-current="page" href="#">@Html.Raw(title)</a>
                     </li>
                 </ul>
-                <form id="search-form" class="d-flex align-items-center" role="search" method="get" action="/search">
+                @using (Html.BeginUmbracoForm("SearchRestaurants", "SearchSurface", FormMethod.Post, new { @class = "d-flex align-items-center", @id = "search-form" }))
+                {
+                    <div class="input-group search-box">
+                        <input class="form-control search-input" id="searchQuery" name="query" type="search" placeholder="Search" aria-label="Search">
+                        <button class="input-group-text search-button" type="submit">
+                            <i class="fas fa-search"></i> <!-- Magnifying glass icon -->
+                        </button>
+                    </div>
+                }
+                @* <form id="search-form" class="d-flex align-items-center" role="search" method="get" action="/search">
                     <div class="d-flex align-items-center">
                         <i class="fa-solid fa-globe icon-margin"></i>
                         <a class="nav-link" href="/sv" id="sv-link">SV</a>
@@ -29,7 +39,7 @@
                     <button class="btn btn-outline-secondary" type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                </form>
+                </form> *@
             </div>
         </div>
     </nav>
