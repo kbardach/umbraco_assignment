@@ -8,6 +8,16 @@
     Layout = "root.cshtml";
 }
 
+@using (Html.BeginUmbracoForm("SearchRestaurants", "SearchSurface", FormMethod.Post, new { @class = "d-flex align-items-center", @id = "search-form" }))
+{
+    <div class="input-group search-box">
+        <input class="form-control search-input" id="searchQuery" name="query" type="search" placeholder="Search" aria-label="Search">
+        <button class="input-group-text search-button" type="submit">
+            <i class="fas fa-search"></i> <!-- Magnifying glass icon -->
+        </button>
+    </div>
+}
+
 <section class="search-results">
     <div class="row">
         @foreach (var restaurant in Model.SearchHits)

@@ -9,7 +9,7 @@ namespace umbraco_assignment.Models.ViewModels
         {
         }
 
-        public IEnumerable<Restaurant> SearchHits { get; set; }
+        public IEnumerable<Restaurant> SearchHits { get; set; } = [];
 
     }
 }
