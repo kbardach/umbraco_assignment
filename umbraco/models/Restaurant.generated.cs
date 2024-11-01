@@ -21,7 +21,7 @@ namespace umbraco_assignment.Models.PublishedModels
 {
 	/// <summary>Restaurant</summary>
 	[PublishedModel("restaurant")]
-	public partial class Restaurant : BaseContentModel
+	public partial class Restaurant : BaseContentModel, IMetaData, ISeo
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -97,5 +97,21 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("restaurantName")]
 		public virtual string RestaurantName => this.Value<string>(_publishedValueFallback, "restaurantName");
+
+		///<summary>
+		/// MetaDescription
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaDescription")]
+		public virtual string MetaDescription => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("title")]
+		public virtual string Title => global::umbraco_assignment.Models.PublishedModels.Seo.GetTitle(this, _publishedValueFallback);
 	}
 }
