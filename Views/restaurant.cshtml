@@ -4,7 +4,9 @@
 
 @{
     Layout = "root.cshtml";
+
     var imageUrls = Model.Content.Images?.Select(image => image.Url()).ToList() ?? new List<string>();
+
     var mainImageUrl = imageUrls.FirstOrDefault(); // För att visa första bilden som huvudbild initialt
 }
 
@@ -23,6 +25,7 @@
             <!-- Små miniatyrbilder under huvudbilden -->
             <div class="thumbnail-container d-flex justify-content-center gap-2 flex-wrap mt-2">
                 @foreach (var imageUrl in imageUrls)
+
                 {
                     <img src="@imageUrl" alt="@Model.Content.RestaurantName" class="thumbnail rounded border" onclick="changeMainImage('@imageUrl')" />
                 }
@@ -142,10 +145,10 @@
         color: #fff;
     }
 
-    .btn:hover{
+        .btn:hover {
             background: rgba(0, 0, 0, 0.6);
             color: #fff;
-    }
+        }
 
     .restaurant-name {
         margin: -8px 0 20px;
@@ -201,9 +204,10 @@
         margin-bottom: 5px;
     }
 
-    .rating-title{
+    .rating-title {
         font-family: League Gothic;
     }
+
     .rating {
         display: flex;
         justify-content: left;
@@ -211,7 +215,7 @@
         direction: rtl;
     }
 
-    .reviews-title{
+    .reviews-title {
         font-family: League Gothic;
     }
 
@@ -221,19 +225,19 @@
         margin-top: 0 !important;
     }
 
-        .rating input[type="radio"] {
-            display: none;
-        }
+    .rating input[type="radio"] {
+        display: none;
+    }
 
-        .rating label {
-            font-size: 1.5em;
-            color: #ddd;
-            cursor: pointer;
-        }
+    .rating label {
+        font-size: 1.5em;
+        color: #ddd;
+        cursor: pointer;
+    }
 
-        .rating input[type="radio"]:checked ~ label {
-            color: gold;
-        }
+    .rating input[type="radio"]:checked ~ label {
+        color: gold;
+    }
 
     /* Submit Button Styling */
     #submitButton {
