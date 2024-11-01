@@ -390,5 +390,78 @@ border: 2px solid white !important;
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+.search-form {
+    max-width: 70%;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styling for the input field and search button */
+.search-input, .search-button {
+    border-radius: 0.25rem;
+}
+
+.search-result {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px; /* Add some space between the image and text */
+    flex-wrap: wrap; /* Ensure elements wrap on smaller screens */
+}
+
+/* Image styling */
+.result-image img {
+    width: 100%; /* Image will take the full width of its container */
+    max-width: 250px !important;
+    border-radius: 0.25rem;
+}
+
+/* Restaurant name styling */
+.restaurant-name {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Restaurant description styling */
+.restaurant-description {
+    font-size: 1.2rem;
+    color: #555 !important;
+}
+
+/* Spacing adjustments */
+.result-image {
+    flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+@media (min-width: 768px) {
+
+    .search-form {
+        max-width: 50%;
+    }
+
+    .restaurant-name {
+        font-size: 2rem;
+    }
+
+    .restaurant-description {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .search-result {
+        flex-wrap: nowrap; /* Ensure elements are side-by-side on larger screens */
+    }
+
+    .search-form {
+        max-width: 60%;
+    }
+}
+
+
 
 

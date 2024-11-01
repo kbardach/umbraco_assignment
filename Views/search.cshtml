@@ -8,27 +8,43 @@
     Layout = "root.cshtml";
 }
 
-@using (Html.BeginUmbracoForm("SearchRestaurants", "SearchSurface", FormMethod.Post, new { @class = "d-flex align-items-center", @id = "search-form" }))
-{
-    <div class="input-group search-box">
-        <input class="form-control search-input" id="searchQuery" name="query" type="search" placeholder="Search" aria-label="Search">
-        <button class="input-group-text search-button" type="submit">
-            <i class="fas fa-search"></i> <!-- Magnifying glass icon -->
-        </button>
-    </div>
-}
+<div class="container mt-4">
+    @using (Html.BeginUmbracoForm("SearchRestaurants", "SearchSurface", FormMethod.Post, new { @class = "search-form mx-auto" }))
+    {
+        <div class="input-group">
+            <input class="form-control search-input" id="searchQuery" name="query" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary" type="submit">
+                <i class="fas fa-search"></i> <!-- Magnifying glass icon -->
+            </button>
+        </div>
+    }
+</div>
 
-<section class="search-results">
-    <div class="row">
+
+<div class="text-center my-4">
+    <h1>@Model.Content.Title</h1>
+    <hr> <!-- Horizontal line for separation -->
+</div>
+
+<!-- Search Results Section -->
+<section class="container mt-5">
+    <div class="row justify-content-center">
         @foreach (var restaurant in Model.SearchHits)
         {
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-                <a href="@restaurant.Url()" class="card restaurant-card" style="background-image: url('@restaurant.FrontImage?.Url()');">
-                    <div class="card-text">
-                        @Html.Raw(restaurant.RestaurantName)
-                    </div>
-                </a>
+            <div class="search-result d-flex mb-4">
+                <!-- Front Image to the Left -->
+                <div class="result-image flex-shrink-0 me-3">
+                    <img src="@restaurant.FrontImage?.Url()" alt="@restaurant.RestaurantName" class="img-fluid rounded" style="max-width: 150px;">
+                </div>
+
+                <!-- Restaurant Details to the Right -->
+                <div class="result-details">
+                    <h5 class="restaurant-name fw-bold mb-1">@Html.Raw(restaurant.RestaurantName)</h5>
+                    <p class="restaurant-description text-muted mb-0">@Html.Raw(restaurant.Description)</p>
+                </div>
             </div>
         }
     </div>
 </section>
+
+
