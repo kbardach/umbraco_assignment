@@ -48,6 +48,20 @@ namespace umbraco_assignment.Models.ViewModels
                 return null;
             }
         }
+        public Search SearchPage
+        {
+            get
+            {
+                if (_umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
+                {
+                    var content = umbracoContext.Content;
+
+                    return content.GetAtRoot().DescendantsOrSelf<Search>().FirstOrDefault();
+                }
+
+                return null;
+            }
+        }
 
         public int Id => MapProperty(c => c.Id);
 

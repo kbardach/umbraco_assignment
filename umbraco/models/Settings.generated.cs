@@ -65,5 +65,13 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("restaurants")]
 		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Restaurants => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "restaurants");
+
+		///<summary>
+		/// SearchPage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("searchPage")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent SearchPage => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "searchPage");
 	}
 }

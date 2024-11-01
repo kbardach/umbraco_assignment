@@ -7,5 +7,7 @@ namespace umbraco_assignment.Interfaces
         Start StartPage { get; }
 
         Settings SettingsPage { get; }
+
+        Search SearchPage { get; }
     }
 }
