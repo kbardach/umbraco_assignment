@@ -396,26 +396,35 @@ border: 2px solid white !important;
     margin-top: 40px;
 }
 
-/* Styling for the input field and search button */
 .search-input, .search-button {
     border-radius: 0.25rem;
+}
+
+.search-hr {
+    width: 70% !important;
+    margin: 0 auto !important;
+}
+
+.alert-warning {
+    font-size: 1.2rem;
+    color: #555 !important;
+    background: none !important;
+    border: none !important;
 }
 
 .search-result {
     display: flex;
     align-items: flex-start;
-    gap: 15px; /* Add some space between the image and text */
-    flex-wrap: wrap; /* Ensure elements wrap on smaller screens */
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-/* Image styling */
 .result-image img {
-    width: 100%; /* Image will take the full width of its container */
+    width: 100%; 
     max-width: 250px !important;
     border-radius: 0.25rem;
 }
 
-/* Restaurant name styling */
 .restaurant-name {
     font-size: 2rem;
     color: #333;
@@ -423,15 +432,13 @@ border: 2px solid white !important;
     margin-bottom: 0.5rem;
 }
 
-/* Restaurant description styling */
 .restaurant-description {
     font-size: 1.2rem;
     color: #555 !important;
 }
 
-/* Spacing adjustments */
 .result-image {
-    flex-shrink: 0; /* Prevent the image from shrinking */
+    flex-shrink: 0; 
 }
 
 @media (min-width: 768px) {
@@ -452,7 +459,7 @@ border: 2px solid white !important;
 @media (min-width: 992px) {
 
     .search-result {
-        flex-wrap: nowrap; /* Ensure elements are side-by-side on larger screens */
+        flex-wrap: nowrap;
     }
 
     .search-form {

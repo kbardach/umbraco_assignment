@@ -51,6 +51,14 @@ namespace umbraco_assignment.Models.PublishedModels
 		// properties
 
 		///<summary>
+		/// NoResultsMessage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("noResultsMessage")]
+		public virtual string NoResultsMessage => this.Value<string>(_publishedValueFallback, "noResultsMessage");
+
+		///<summary>
 		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]

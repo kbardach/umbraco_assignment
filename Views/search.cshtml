@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Azure.Core
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @using umbraco_assignment.Models.PublishedModels
 @using umbraco_assignment.Models.ViewModels
 
@@ -22,29 +23,41 @@
 
 
 <div class="text-center my-4">
-    <h1>@Model.Content.Title</h1>
-    <hr> <!-- Horizontal line for separation -->
+    <h1>@Model.Content.Title @if (!string.IsNullOrEmpty(Model.SearchQuery))
+        {
+            <span class="query-text">"@Model.SearchQuery"</span>
+        }</h1>
+    <hr class="search-hr"> <!-- Horizontal line for separation -->
 </div>
 
 <!-- Search Results Section -->
 <section class="container mt-5">
-    <div class="row justify-content-center">
-        @foreach (var restaurant in Model.SearchHits)
-        {
-            <div class="search-result d-flex mb-4">
-                <!-- Front Image to the Left -->
-                <div class="result-image flex-shrink-0 me-3">
-                    <a href="@restaurant.Url()">
-                        <img src="@restaurant.FrontImage?.Url()" alt="@restaurant.RestaurantName" class="img-fluid rounded" style="max-width: 150px;">
-                    </a>
-                </div>
+    @if (Model.SearchHits.Any())
+    {
+        <div class="row justify-content-center">
+            @foreach (var restaurant in Model.SearchHits)
+            {
+                <div class="search-result d-flex mb-4">
+                    <!-- Front Image to the Left -->
+                    <div class="result-image flex-shrink-0 me-3">
+                        <a href="@restaurant.Url()">
+                            <img src="@restaurant.FrontImage?.Url()" alt="@restaurant.RestaurantName" class="img-fluid rounded" style="max-width: 150px;">
+                        </a>
+                    </div>
 
-                <!-- Restaurant Details to the Right -->
-                <div class="result-details">
-                    <h5 class="restaurant-name fw-bold mb-1">@Html.Raw(restaurant.RestaurantName)</h5>
-                    <p class="restaurant-description mb-0">@Html.Raw(restaurant.Description)</p>
+                    <!-- Restaurant Details to the Right -->
+                    <div class="result-details">
+                        <h5 class="restaurant-name fw-bold mb-1">@Html.Raw(restaurant.RestaurantName)</h5>
+                        <p class="restaurant-description mb-0">@Html.Raw(restaurant.Description)</p>
+                    </div>
                 </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center" role="alert">
+            @Model.NoResultsMessage
+        </div>
+    }
 </section>

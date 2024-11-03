@@ -9,6 +9,10 @@ namespace umbraco_assignment.Models.ViewModels
         {
         }
 
+        public string SearchQuery { get; set; }
+
+        public string NoResultsMessage { get; set; }
+
         public IEnumerable<Restaurant> SearchHits { get; set; } = [];
 
     }

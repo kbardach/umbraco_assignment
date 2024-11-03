@@ -32,15 +32,22 @@ namespace umbraco_assignment.Controllers.SurfaceControllers
                 var content = umbracoContext.Content;
 
                 var settingsPage = content.GetAtRoot().DescendantsOrSelf<Settings>().FirstOrDefault();
-                var searchPage = settingsPage.SearchPage as Search; // TODO om searchpage är null fix
+                var searchPage = settingsPage?.SearchPage as Search; // TODO om searchpage är null fix
 
-                var model = new SearchPageViewModel(searchPage, _umbracoContextAccessor);
-                
-                var rootContent = umbracoContext.Content.GetAtRoot().FirstOrDefault();
-                    if (rootContent != null)
-                    {
-                        model.SearchHits = await _restaurantService.GetRestaurantWithDetailsAsync(query);
-                    }
+                var model = new SearchPageViewModel(searchPage, _umbracoContextAccessor) 
+                { 
+                    SearchQuery = query,
+                    NoResultsMessage = searchPage?.NoResultsMessage
+                };
+
+                if (string.IsNullOrWhiteSpace(query))
+                {
+                    model.SearchHits = Enumerable.Empty<Restaurant>();
+                }
+                else
+                {
+                    model.SearchHits = await _restaurantService.GetRestaurantWithDetailsAsync(query);
+                }
                 return View("search", model);
             }
 
