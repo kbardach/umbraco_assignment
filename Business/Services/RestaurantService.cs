@@ -32,16 +32,15 @@ namespace umbraco_assignment.Business.Services
 
                 if (rootContent != null)
                 {
-                    // Get all restaurant nodes (use your document type alias)
                     var allRestaurants = rootContent.DescendantsOrSelf<Restaurant>();
 
                     restaurants = allRestaurants
-                        .Where(x =>
-                            // Check RestaurantName contains query (case-insensitive)
-                            x.RestaurantName.Contains(query, StringComparison.OrdinalIgnoreCase) ||
-                            // Fallback: Check Description without spaces, in lowercase
-                            (x.Description != null && x.Description.ToLower().Replace(" ", "").Contains(query.ToLower().Replace(" ", "")))
-                        )
+                        .Where(x => x.Keywords?.Split(',').Any(k => k.Trim().Equals(query, StringComparison.OrdinalIgnoreCase)) == true)
+
+                        //.Where(x =>
+                        //    x.RestaurantName.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                        //    (x.Keywords != null && x.Keywords.ToLower().Replace(" ", "").Contains(query.ToLower().Replace(" ", "")))
+                        //)
                         .ToList();
                 }
             }
