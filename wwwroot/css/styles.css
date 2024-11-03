@@ -393,9 +393,7 @@ border: 2px solid white !important;
 .search-form {
     max-width: 70%;
     width: 100%;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 40px;
 }
 
 /* Styling for the input field and search button */
