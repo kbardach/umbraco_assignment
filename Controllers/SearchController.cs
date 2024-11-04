@@ -4,30 +4,64 @@ using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 using umbraco_assignment.Models.PublishedModels;
 using umbraco_assignment.Models.ViewModels;
+using umbraco_assignment.Business.Services.Interfaces;
+using umbraco_assignment.Business.Services;
+using Microsoft.IdentityModel.Tokens;
 
 namespace umbraco_assignment.Controllers
 {
     public class SearchController : RenderController
     {
         private readonly IUmbracoContextAccessor _umbracoContextAccessor;
+        private readonly IRestaurantService _restaurantService;
 
-        public SearchController(ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor) : base(logger, compositeViewEngine, umbracoContextAccessor)
+        public SearchController(IRestaurantService restaurantService,ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor) : base(logger, compositeViewEngine, umbracoContextAccessor)
         {
             _umbracoContextAccessor = umbracoContextAccessor;
+            _restaurantService = restaurantService;
         }
-        public override IActionResult Index()
+
+        [HttpGet("search/index")]
+        public async Task<IActionResult> Index()
         {
+            var query = HttpContext.Request.Query["query"];
             var searchPage = CurrentPage as Search;
 
             if (searchPage != null)
             {
-                var model = new SearchPageViewModel(searchPage, _umbracoContextAccessor);
+                var hits = await _restaurantService.GetRestaurantWithDetailsAsync(query);
+                var message = "";
+
+                if (!string.IsNullOrEmpty(query) && !hits.Any())
+                {
+                    message = searchPage.NoResultsMessage;
+                }
+
+                var model = new SearchPageViewModel(searchPage, _umbracoContextAccessor)
+                {
+                    SearchQuery = query,
+                    SearchHits = hits,
+                    NoResultsMessage = message
+                };
 
                 return CurrentTemplate(model);
             }
 
             return null;
         }
+
+        //[HttpPost]
+        //public IActionResult SubmitForm(string query)
+        //{
+        //    return null;
+        //}
+
+        //[HttpPost]
+        //public IActionResult SearchResults(string query) 
+        //{
+
+        //    return null;
+        //}
     }
 }
 
