@@ -21,7 +21,7 @@ namespace umbraco_assignment.Models.PublishedModels
 {
 	/// <summary>Error</summary>
 	[PublishedModel("error")]
-	public partial class Error : BaseContentModel
+	public partial class Error : BaseContentModel, IMetaData
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -81,5 +81,21 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("link")]
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> Link => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(_publishedValueFallback, "link");
+
+		///<summary>
+		/// MetaDescription
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaDescription")]
+		public virtual string MetaDescription => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// MetaRobots
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaRobots")]
+		public virtual string MetaRobots => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaRobots(this, _publishedValueFallback);
 	}
 }

@@ -22,17 +22,39 @@ namespace umbraco_assignment.Business.Services
 
                 if (content != null)
                 {
-                    var startPage = content.GetAtRoot().DescendantsOrSelf<Start>().FirstOrDefault();
+                    // Get all root content nodes and their descendants
+                    var allPages = content.GetAtRoot()
+                        .SelectMany(root => root.DescendantsOrSelf<IPublishedContent>())
+                        .Where(page => page is ISeo seoPage && page.IsPublished())
+                        .ToList();
 
-                    if (startPage != null)
-                    {
-                        return startPage.DescendantsOrSelf<IPublishedContent>()
-                            .Where(page => page is ISeo seoPage).ToList();
-                    }
+                    return allPages;
                 }
             }
 
-            return [];
+            return new List<IPublishedContent>();
         }
+
+
+        //public List<IPublishedContent> Pages()
+        //{
+        //    if (_umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
+        //    {
+        //        var content = umbracoContext.Content;
+
+        //        if (content != null)
+        //        {
+        //            var startPage = content.GetAtRoot().DescendantsOrSelf<Start>().FirstOrDefault();
+
+        //            if (startPage != null)
+        //            {
+        //                return startPage.DescendantsOrSelf<IPublishedContent>()
+        //                    .Where(page => page is ISeo seoPage).ToList();
+        //            }
+        //        }
+        //    }
+
+        //    return [];
+        //}
     }
 }
