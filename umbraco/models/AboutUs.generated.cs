@@ -19,14 +19,14 @@ using Umbraco.Cms.Core.Web;
 
 namespace umbraco_assignment.Models.PublishedModels
 {
-	/// <summary>Restaurant</summary>
-	[PublishedModel("restaurant")]
-	public partial class Restaurant : BaseContentModel, IMetaData, ISeo
+	/// <summary>About Us</summary>
+	[PublishedModel("aboutUs")]
+	public partial class AboutUs : BaseContentModel, IMetaData
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
-		public new const string ModelTypeAlias = "restaurant";
+		public new const string ModelTypeAlias = "aboutUs";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
@@ -35,14 +35,14 @@ namespace umbraco_assignment.Models.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Restaurant, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<AboutUs, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public Restaurant(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public AboutUs(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -51,60 +51,92 @@ namespace umbraco_assignment.Models.PublishedModels
 		// properties
 
 		///<summary>
-		/// Address
+		/// Contact Button
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("address")]
-		public virtual string Address => this.Value<string>(_publishedValueFallback, "address");
+		[ImplementPropertyType("contactButton")]
+		public virtual string ContactButton => this.Value<string>(_publishedValueFallback, "contactButton");
 
 		///<summary>
-		/// Category
+		/// Contact Link
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("category")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> Category => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "category");
+		[ImplementPropertyType("contactLink")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> ContactLink => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(_publishedValueFallback, "contactLink");
 
 		///<summary>
-		/// Description
+		/// Header Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("description")]
-		public virtual string Description => this.Value<string>(_publishedValueFallback, "description");
+		[ImplementPropertyType("headerImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops HeaderImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "headerImage");
 
 		///<summary>
-		/// FrontImage
+		/// More
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("frontImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FrontImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "frontImage");
+		[ImplementPropertyType("more")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString More => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "more");
 
 		///<summary>
-		/// Images
+		/// More Header
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("images")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Images => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops>>(_publishedValueFallback, "images");
+		[ImplementPropertyType("moreHeader")]
+		public virtual string MoreHeader => this.Value<string>(_publishedValueFallback, "moreHeader");
 
 		///<summary>
-		/// Keywords
+		/// Our Story
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("keywords")]
-		public virtual string Keywords => this.Value<string>(_publishedValueFallback, "keywords");
+		[ImplementPropertyType("ourStory")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString OurStory => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "ourStory");
 
 		///<summary>
-		/// Restaurant Name
+		/// Our Story Header
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("restaurantName")]
-		public virtual string RestaurantName => this.Value<string>(_publishedValueFallback, "restaurantName");
+		[ImplementPropertyType("ourStoryHeader")]
+		public virtual string OurStoryHeader => this.Value<string>(_publishedValueFallback, "ourStoryHeader");
+
+		///<summary>
+		/// Our Values
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("ourValues")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString OurValues => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "ourValues");
+
+		///<summary>
+		/// Slogan
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("slogan")]
+		public virtual string Slogan => this.Value<string>(_publishedValueFallback, "slogan");
+
+		///<summary>
+		/// Page Header
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("title")]
+		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
+
+		///<summary>
+		/// Values Header
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("valuesHeader")]
+		public virtual string ValuesHeader => this.Value<string>(_publishedValueFallback, "valuesHeader");
 
 		///<summary>
 		/// MetaDescription
@@ -121,13 +153,5 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("metaRobots")]
 		public virtual string MetaRobots => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaRobots(this, _publishedValueFallback);
-
-		///<summary>
-		/// Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => global::umbraco_assignment.Models.PublishedModels.Seo.GetTitle(this, _publishedValueFallback);
 	}
 }
