@@ -17,10 +17,6 @@
     double averageRating = reviews.Any() ? reviews.Average(r => r.Rating) : 0;
 }
 
-<div class="average-rating">
-    <h4>Genomsnittligt betyg: @averageRating.ToString("0.0") / 5</h4>
-</div>
-
 
 <div class="container mt-4">
     <div class="row">
@@ -70,7 +66,7 @@
 
         <!-- Textsektion -->
         <div class="col-lg-6 col-md-12">
-            <h1 class="restaurant-name">@Model.Content.RestaurantName</h1>
+            <h1 class="restaurant-name">@Model.Content.RestaurantName <span class="review-rating-title"><i class="fas fa-star"></i> @averageRating.ToString("0.0") / 5</span></h1>
             <p class="restaurant-description">@Model.Content.Description</p>
 
             <!-- Kommentar- och betygsformulär -->
@@ -78,7 +74,7 @@
                 @using (Html.BeginUmbracoForm("CreateReview", "Review", FormMethod.Post))
                 {
                     <div class="card-body p-4">
-                        <h4 class="rating-title">Add a rating and a comment</h4>
+                        <h3 class="rating-title">Add a rating and a comment</h3>
                         <!-- Star Rating -->
                         <div class="mb-4">
                             <label for="rating" class="form-label"><strong>Rate @Model.Content.RestaurantName:</strong></label>
@@ -136,6 +132,11 @@
 </script>
 
 <style>
+    .review-rating-title {
+        color: gold;
+        font-size: 28px;
+    }
+
     .row {
         margin-top: 76px;
     }
@@ -243,7 +244,11 @@
     .mt-5 {
         text-align: left;
         padding: 15px 30px;
-        margin-top: 0 !important;
+        margin-top: 1rem !important;
+    }
+
+    .review-comment{
+        margin-bottom: 8px;
     }
 
     .rating input[type="radio"] {
