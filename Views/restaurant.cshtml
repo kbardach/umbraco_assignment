@@ -53,8 +53,15 @@
             <h1 class="restaurant-name">@Model.Content.RestaurantName</h1>
             <p class="restaurant-description">@Model.Content.Description</p>
             <!-- Comment and Rating Form Card -->
+
+
+
+
+
+
             <div class="card shadow-lg border-0 rounded mb-4 commentForm">
-                <form method="post" action="">
+                @using (Html.BeginUmbracoForm("CreateReview", "Review", FormMethod.Post))
+                {
                     <div class="card-body p-4">
                         <h4 class="rating-title">Add a rating and a comment</h4>
                         <!-- Star Rating -->
@@ -77,8 +84,7 @@
                             <textarea class="form-control" id="commentTextarea" rows="4" placeholder="Write your comment here" name="comment" required></textarea>
                         </div>
 
-                        <input type="hidden" id="imdbid" name="imdbid" value="" />
-                        <input type="hidden" id="date" name="date" value="@DateTime.Now" />
+                        <input type="hidden" id="restaurantId" name="restaurantId" value="@Model.Id" />
 
                         <!-- Submit Button with Spinner -->
                         <button type="submit" class="btn btn-primary btn-lg shadow-sm" id="submitButton">
@@ -87,7 +93,12 @@
                         </button>
                         <!-- } -->
                     </div>
-                </form>
+                }
+
+
+
+
+
             </div>
         </div>
     </div>
