@@ -6,6 +6,6 @@ namespace umbraco_assignment.Business.Services.Interfaces
     {
         void CreateReview(Review review);
 
-        List<Review> GetReviews();
+        List<Review> GetReviews(int restaurantId);
     }
 }

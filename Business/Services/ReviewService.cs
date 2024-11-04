@@ -50,14 +50,31 @@ namespace umbraco_assignment.Business.Services
         public void CreateReview(Review review)
         {
             var connection = _configuration.GetConnectionString("umbracoDbDSN");
-            // todo - kolla om databasen finns
-            // todo - om den inte finns, skapa upp databasen
-            // todo - skicka review till databas
+
+            using (var db = new Database(connection, DatabaseType.SqlServer2012, SqlClientFactory.Instance))
+            {
+                var sql = @"
+                    INSERT INTO dbo.Reviews (restaurantId, comment, name, rating, date)
+                    VALUES (@0, @1, @2, @3, @4)";
+
+                db.Execute(sql, review.RestaurantId, review.Comment, review.Name, review.Rating, review.Date);
+            }
         }
 
-        public List<Review> GetReviews()
+        public List<Review> GetReviews(int restaurantId)
         {
-            return new List<Review>();
+            var connection = _configuration.GetConnectionString("umbracoDbDSN");
+
+            using (var db = new Database(connection, DatabaseType.SqlServer2012, SqlClientFactory.Instance))
+            {
+                var sql = @"
+                    SELECT restaurantId, name, comment, rating, date
+                    FROM dbo.Reviews
+                    WHERE restaurantId = @0";
+
+                return db.Fetch<Review>(sql, restaurantId);
+            }
         }
+
     }
 }
