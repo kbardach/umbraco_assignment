@@ -2,6 +2,9 @@
     localStorage.setItem('selectedLanguage', language);
 }
 
+// MUTED SEARCH BUTTON
+
+
 // Function to highlight the selected language
 function highlightSelectedLanguage() {
     const currentLanguage = window.location.pathname;  // Check URL path

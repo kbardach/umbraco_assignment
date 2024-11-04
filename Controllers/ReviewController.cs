@@ -37,6 +37,8 @@ namespace umbraco_assignment.Controllers
                 };
 
                 _reviewService.CreateReview(review);
+
+                return RedirectToCurrentUmbracoPage();
             }
 
             return NotFound();

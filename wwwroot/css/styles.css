@@ -47,10 +47,10 @@ body {
     color: #444 !important; /* Adjust color if necessary */
 }
 
-span{
+/*span{
     color: #444;
     font-weight:500;
-}
+}*/
 
 .icon-margin {
     margin-right: 5px; /* Justera värdet för att flytta ikonen närmare eller längre bort från texten */
@@ -63,11 +63,14 @@ span{
     padding: 0 0px;
 }
 
+.d-flex.align-items-center{
+    margin-right: 10px;
+}
+
 form .form-control {
     border-color: #ccc;
     background-color: #fff !important;
     color: #666 !important;
-    margin-left: 10px;
 }
 
 form .btn-outline-secondary {
