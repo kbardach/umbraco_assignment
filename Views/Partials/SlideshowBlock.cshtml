@@ -35,7 +35,7 @@
                     <div class="carousel-caption">
                         <h1>@slides[i].Name</h1>
                         <p>
-                            <a class="btn btn-lg btn-primary" href="javascript:void(0)">
+                            <a class="btn btn-lg btn-primary" href="@slides[i].Link?.FirstOrDefault()?.Url">
                                 @slides[i].Button
                             </a>
                         </p>
