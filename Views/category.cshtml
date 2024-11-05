@@ -3,6 +3,7 @@
 @using umbraco_assignment.Models.ViewModels
 
 @inherits UmbracoViewPage<CategoryPageViewModel>
+@inject umbraco_assignment.Business.Services.Interfaces.IReviewService _reviewService
 @{
     Layout = "root.cshtml";
 
@@ -17,53 +18,20 @@
 
     // Filtrera restauranger efter kategori
     var filteredRestaurants = restaurants.Where(r => r.Category.Contains(currentCategory));
+
+    var restaurantRatings = new List<(Restaurant restaurant, double averageRating)>();
+
+    // Hämta betygen för varje restaurang
+    foreach (var restaurant in filteredRestaurants)
+    {
+        var reviews = _reviewService.GetReviews(restaurant.Id); // Använd restaurant.Id för att hämta recensioner
+
+        double averageRating = reviews.Any() ? reviews.Average(r => r.Rating) : 0;
+
+        // Lägg till restaurangen och dess genomsnittsbetyg i listan
+        restaurantRatings.Add((restaurant, averageRating));
+    }
 }
-
-@* <div class="container mt-5">
-    <div class="row">
-        <!-- Vänstra kolumnen med stor bild och rubrik -->
-        <div class="col-lg-6 d-flex flex-column align-items-center">
-            <div class="large-image-wrapper">
-                @if (categoryImage != null)
-                {
-                    <img src="@categoryImage.Url()" alt="@Model.Content.Name" class="img-fluid large-image" />
-                }
-                else
-                {
-                    <p>Ingen bild tillgänglig</p>
-                }
-            </div>
-            <!-- Rubrik under bilden -->
-            <h1>@Model.Content.Name</h1>
-        </div>
-
-        <!-- Högra kolumnen med dynamiskt genererade filtrerade restaurangkort -->
-        <div class="col-lg-6">
-            <div class="row">
-                @if (filteredRestaurants.Any())
-                {
-                    @foreach (var restaurant in filteredRestaurants)
-                    {
-                        <div class="col-6 mb-4">
-                            <a href="@restaurant.Url()" class="card text-center category-card">
-                                <img src="@restaurant.FrontImage.Url()" class="card-img-top small-image" alt="@restaurant.RestaurantName">
-                                <div class="card-body">
-                                    <p>@Html.Raw(restaurant.RestaurantName)</p>
-                                </div>
-                            </a>
-                        </div>
-                    }
-                }
-                else
-                {
-                    <p>Inga restauranger tillhör denna kategori.</p>
-                }
-            </div>
-        </div>
-    </div>
-</div>
-
- *@
 
 <div class="container mt-5">
     <div class="row">
@@ -90,11 +58,17 @@
                 {
                     @foreach (var restaurant in filteredRestaurants)
                     {
+                        var rating = restaurantRatings.FirstOrDefault(r => r.restaurant.Id == restaurant.Id).averageRating;
+
                         <div class="col-6 mb-4">
                             <a href="@restaurant.Url()" class="card text-center category-card">
                                 <img src="@restaurant.FrontImage.Url()" class="card-img-top small-image" alt="@restaurant.RestaurantName">
                                 <div class="card-body">
                                     <p>@Html.Raw(restaurant.RestaurantName)</p>
+                                    <span class="review-rating-title">
+                                        <i class="fas fa-star"></i>  @rating.ToString("0.0") / 5
+                                    </span>
+
                                 </div>
                             </a>
                         </div>
