@@ -9,16 +9,22 @@
 }
 
 <div class="error-page">
-    <div class="error-content">
-        <h1>@Model.Content.Heading</h1>
-        <p>@Model.Content.Description</p>
+    <div class="error-content-wrapper">
+        <div class="error-content">
+            <h1>@Model.Content.Heading</h1>
+            <p>@Model.Content.Description</p>
 
-        @if (Model.Content.Link != null && Model.Content.Link.Any())
-        {
-            <a href="@Model.Content.Link.First().Url" target="@Model.Content.Link.First().Target" class="btn-error">
-                @Model.Content.Button
-            </a>
-        }
+            @if (Model.Content.Link != null && Model.Content.Link.Any())
+            {
+                <a href="@Model.Content.Link.First().Url" target="@Model.Content.Link.First().Target" class="btn-error">
+                    @Model.Content.Button
+                </a>
+            }
+        </div>
+
+        <div class="error-image">
+            <img src="@Model.Content.Image?.Url()" alt="Error Image" class="img-fluid" />
+        </div>
     </div>
 </div>
 
