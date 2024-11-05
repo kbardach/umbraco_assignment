@@ -55,5 +55,6 @@ namespace umbraco_assignment.Models.PublishedModels
                 return null;
             }
         }
+
     }
 }

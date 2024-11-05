@@ -9,5 +9,6 @@ namespace umbraco_assignment.Interfaces
         Settings SettingsPage { get; }
 
         Search SearchPage { get; }
+
     }
 }
