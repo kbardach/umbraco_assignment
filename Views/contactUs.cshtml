@@ -1,0 +1,20 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using umbraco_assignment.Models.ViewModels
+@inherits UmbracoViewPage<ContactUsPageViewModel>
+@{
+	Layout = "root.cshtml";
+}
+
+<h1>@Model.Content.Name</h1>
+
+<div>
+    @if (Model.Content.Form != null)
+    {
+        @await Component.InvokeAsync("RenderForm", new
+            {
+                formId = Model.Content.Form,
+                theme = "",
+                includeScripts = false
+            })
+    }
+</div>
