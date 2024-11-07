@@ -31,15 +31,42 @@ namespace umbraco_assignment.Controllers.SurfaceControllers
             {
                 var content = umbracoContext.Content;
 
-                var settingsPage = content.GetAtRoot().DescendantsOrSelf<Settings>().FirstOrDefault();
-                var searchPage = settingsPage?.SearchPage as Search; // TODO om searchpage är null fix
+                var settingsPage = content?.GetAtRoot().DescendantsOrSelf<Settings>().FirstOrDefault();
+                var errorPage = content?.GetAtRoot().DescendantsOrSelf<Error>().FirstOrDefault();
+                var searchPage = settingsPage?.SearchPage as Search;
+                var model = new ErrorPageViewModel(errorPage, _umbracoContextAccessor);
+
+                searchPage = null;
+                if (content == null || searchPage == null)
+                {
+                    return View("Error", model); // Example error view for null content
+                }
+
                 var searchPageUrl = searchPage.Url();
-                
+
                 return Redirect($"{searchPageUrl}?query={Uri.EscapeDataString(query)}");
             }
 
             return View();
         }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> SearchRestaurants(string query)
+        //{
+        //    if (_umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
+        //    {
+        //        var content = umbracoContext.Content;
+
+        //        var settingsPage = content.GetAtRoot().DescendantsOrSelf<Settings>().FirstOrDefault();
+        //        var searchPage = settingsPage?.SearchPage as Search; // TODO om searchpage är null fix
+        //        var searchPageUrl = searchPage.Url();
+
+        //        return Redirect($"{searchPageUrl}?query={Uri.EscapeDataString(query)}");
+        //    }
+
+        //    return View();
+        //}
 
     }
 }
