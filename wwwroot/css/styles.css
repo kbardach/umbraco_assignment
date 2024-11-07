@@ -31,11 +31,6 @@ body {
     font-family: League Gothic;
 }
 
-.active-language {
-    text-decoration: underline !important;
-    font-weight: bold !important;
-}
-
 .nav-link {
     color: #444 !important;
     margin-right: 0.5rem;
@@ -44,7 +39,7 @@ body {
 
 .nav-item .mx-1 {
     padding: 0 0.2rem !important;
-    color: #444 !important; /* Adjust color if necessary */
+    color: #444 !important; 
 }
 
 /*span{
@@ -53,7 +48,7 @@ body {
 }*/
 
 .icon-margin {
-    margin-right: 5px; /* Justera värdet för att flytta ikonen närmare eller längre bort från texten */
+    margin-right: 5px;
 }
 
 .d-flex.align-items-center > a {
@@ -82,9 +77,26 @@ form .btn-outline-secondary {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(68, 68, 68, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
-.active-language {
-    text-decoration: underline;
+.language-switcher {
+    font-size: 1rem;
+}
+
+.fa-solid {
+    margin-right: 10px;
+}
+
+.language-selector .language-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.language-selector .language-item a.active-language {
+    text-decoration: underline !important;
     font-weight: bold;
+}
+
+.language-selector .language-item a:hover {
+    text-decoration: underline;
 }
 
 
