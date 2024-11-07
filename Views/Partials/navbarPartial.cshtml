@@ -4,6 +4,8 @@
 
 @{
     var title = Model.CurrentPage.StartPage.Name;
+    var aboutUs = Model.CurrentPage.StartPage.Value<IPublishedContent>("aboutUs");
+
 }
 
 <header data-bs-theme="dark">
@@ -18,6 +20,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">@Html.Raw(title)</a>
                     </li>
+                    @if (aboutUs != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@aboutUs.Url()">@aboutUs.Name</a>
+                        </li>
+                    }
                 </ul>
                 <div class="d-flex align-items-center">
                     <i class="fa-solid fa-globe icon-margin"></i>
