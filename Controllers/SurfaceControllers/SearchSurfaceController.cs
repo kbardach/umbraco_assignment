@@ -36,7 +36,6 @@ namespace umbraco_assignment.Controllers.SurfaceControllers
                 var searchPage = settingsPage?.SearchPage as Search;
                 var model = new ErrorPageViewModel(errorPage, _umbracoContextAccessor);
 
-                searchPage = null;
                 if (content == null || searchPage == null)
                 {
                     return View("Error", model); // Example error view for null content
