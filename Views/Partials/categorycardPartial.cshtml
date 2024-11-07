@@ -7,7 +7,7 @@
     @foreach (var category in Model.Categories)
     {
         <div class="col-12 col-sm-6 col-md-6 col-lg-5 mb-4">
-            <a href="@category.Url()" class="card category-card" style="background-image: url('@category.Image.Url()');">
+            <a href="@category.Url()" class="card category-card-big" style="background-image: url('@category.Image.Url()'); max-height: 330px; max-width: 500px">
                 <div class="card-text">
                     @Html.Raw(category.DisplayName)
                 </div>
@@ -15,6 +15,4 @@
         </div>
     }
 </div>
-
-
 
