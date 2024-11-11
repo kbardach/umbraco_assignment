@@ -30,7 +30,7 @@
             var active = (i == 0) ? "active" : null;
 
             <div class="carousel-item @active">
-                <img src="@slides[i].Image.Url()" class="carousel-poster" alt="@slides[i].AltText" />
+                <img src="@slides[i].Image.Url()" class="carousel-poster" alt="@slides[i].AltText" loading="lazy" />
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>@slides[i].Name</h1>

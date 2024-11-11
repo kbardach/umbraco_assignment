@@ -5,9 +5,9 @@
 	Layout = "root.cshtml";
 }
 
-<h1>@Model.Content.Name</h1>
+<h1 class="contact-us">@Model.Content.Name</h1>
 
-<div>
+<div class="custom-contact-form-container">
     @if (Model.Content.Form != null)
     {
         @await Component.InvokeAsync("RenderForm", new

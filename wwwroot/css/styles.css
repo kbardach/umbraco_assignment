@@ -199,7 +199,7 @@ form .btn-outline-secondary {
 
 
 footer.container {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa !important;
     padding: 20px 0;
     border-top: 1px solid #e7e7e7;
     text-align: center;
@@ -214,7 +214,7 @@ footer .float-end {
 footer p {
     margin: 0;
     font-size: 14px;
-    color: #6c757d;
+    color: black;
 }
 
 footer a {
@@ -834,3 +834,96 @@ footer a {
         padding: 14px 32px;
     }
 }
+/*---------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------- CONTACT US PAGE -----------------------------------------------------*/
+
+.contact-us, h1 {
+    text-align: center;
+    margin-top: 50px; /* Justerade marginalen för bättre responsivitet */
+}
+
+.custom-contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+    .custom-contact-form-container input[type="text"],
+    .custom-contact-form-container input[type="email"],
+    .custom-contact-form-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: white;
+        resize: none;
+    }
+
+input[name="22b1c0c8c31249449efb918afa013f90"] {
+    visibility: hidden;
+}
+
+input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
+    visibility: hidden;
+}
+
+.custom-contact-form-container input[type="submit"] {
+    background-color: #2B3035 !important;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: -40px;
+}
+
+    .custom-contact-form-container input[type="submit"]:hover {
+        background-color: #3a4047 !important;
+        transform: scale(1.05);
+    }
+
+/* Media Queries för responsivitet */
+@media (max-width: 768px) {
+    .custom-contact-form-container {
+        padding: 15px;
+    }
+
+        .custom-contact-form-container input[type="text"],
+        .custom-contact-form-container input[type="email"],
+        .custom-contact-form-container textarea {
+            padding: 8px;
+        }
+
+        .custom-contact-form-container button[type="submit"] {
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+}
+
+@media (max-width: 480px) {
+    .contact-us, h1 {
+        font-size: 24px; /* Justerar fontstorlek för mindre skärmar */
+        margin-top: 30px;
+    }
+
+    .custom-contact-form-container {
+        padding: 30px;
+        border: 1px solid #bbb; /* Minska bredden på border för små skärmar */
+    }
+
+        .custom-contact-form-container input[type="text"],
+        .custom-contact-form-container input[type="email"],
+        .custom-contact-form-container textarea {
+            padding: 6px;
+        }
+
+        .custom-contact-form-container button[type="submit"] {
+            padding: 6px 10px;
+            font-size: 12px;
+        }
+}
+/*---------------------------------------------------------------------------------------------------------------------*/
