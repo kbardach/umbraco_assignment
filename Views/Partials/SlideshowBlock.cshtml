@@ -35,9 +35,12 @@
                     <div class="carousel-caption">
                         <h1>@slides[i].Name</h1>
                         <p>
-                            <a class="btn btn-lg btn-primary" href="@slides[i].Link?.FirstOrDefault()?.Url">
-                                @slides[i].Button
-                            </a>
+                            @if (!string.IsNullOrEmpty(slides[i].Link?.FirstOrDefault()?.Url))
+                            {
+                                <a class="btn btn-lg btn-primary" href="@slides[i].Link.FirstOrDefault().Url">
+                                    @slides[i].Button
+                                </a>
+                            }
                         </p>
                     </div>
                 </div>
