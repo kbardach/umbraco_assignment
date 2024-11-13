@@ -769,17 +769,31 @@ footer a {
     margin-bottom: 30px;
 }
 
-.section-padding .btn-primary {
+.section-padding, .about-button{
     display: block;
-    margin: 0 auto; /* Centers the button */
-    width: fit-content; /* Sets the button width to its content size */
+    margin: 0 auto; 
+    width: fit-content; 
     padding: 10px 20px;
     transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-    color: #fff;
+.about-button {
+    display: inline-block;
+    text-align: center;
+    width: fit-content;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    background-color: #2b3035 !important;
+    color: var(--bs-body-bg) !important;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.about-button:hover{
+    text-decoration: underline;
 }
 
 @media (min-width: 576px) {
@@ -813,7 +827,7 @@ footer a {
         font-size: 1.1rem;
     }
 
-    .btn-primary {
+    .about-button{
         padding: 12px 30px;
         font-size: 1rem;
     }
@@ -841,7 +855,7 @@ footer a {
         max-width: 32%;
     }
 
-    .btn-primary {
+    .about-button {
         font-size: 1.1rem;
         padding: 14px 32px;
     }
