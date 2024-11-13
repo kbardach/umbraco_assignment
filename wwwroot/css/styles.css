@@ -782,12 +782,13 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
 }
 
 .review-rating-title {
-    color: gold !important;
-    font-size: 28px !important;
+    color: black !important;
+    font-size: 14px !important;
+    font-weight: bold;
 }
 
 .thumbnail {
-    width: 80px !important;
+    width: 78.5px !important;
     height: 80px !important;
     object-fit: cover !important;
     cursor: pointer !important;
@@ -798,9 +799,9 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
         transform: scale(1.1) !important;
     }
 
-
-
-
+.row {
+    margin-top: 76px !important;
+}
 
 .rating-container {
     margin-bottom: 1rem !important;
@@ -840,6 +841,7 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
 
 .resto-text {
     margin-bottom: 200px !important;
+    padding: 0 35px;
 }
 
 .card-body {
@@ -848,6 +850,7 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
 
 .restaurant-name {
     text-align: left !important; /* Säkerställ att texten är vänsterjusterad */
+    padding: 0 35px;
 }
 
 .form-control {
@@ -857,24 +860,50 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
 
 .reviews-section {
     text-align: start !important;
+    padding: 35px;
 }
 
 
 .main-image-wrapper {
     position: relative !important;
-    width: 525px !important; /* Fast bredd */
-    height: 400px !important; /* Fast höjd */
-    /*margin: auto;*/ /* Centrerar wrappern om det behövs */
-    /*overflow: hidden !important;*/ /* Förhindrar att innehåll läcker utanför wrappern */
+    width: 100%; /* Anpassar bredden till förälder */
+    max-width: 525px; /* Sätter en maxbredd för stora skärmar */
+    height: 400px; /* Automatisk höjd baserat på innehållets bredd */
+    margin: auto; /* Centrerar wrappern */
 }
 
 .main-image {
     width: 100% !important; /* Tar upp hela bredden av wrappern */
-    height: 100% !important; /* Tar upp hela höjden av wrappern */
+    height: 400px !important; /* Automatisk höjd för att bibehålla proportionerna */
     object-fit: cover !important; /* Täcker ytan utan att förlora proportioner */
-    border-radius: 5px !important; /* Eventuella rundade hörn */
+    border-radius: 5px !important; /* Rundade hörn */
 }
 
+/* Media queries för olika skärmstorlekar */
+
+/* Större skärmar */
+@media (min-width: 1024px) {
+    .main-image-wrapper {
+        width: 80%; /* Ger lite "luft" runt bilden */
+        max-width: 550px; /* Maximal bredd på större skärmar */
+    }
+}
+
+/* Medelstora skärmar (tablets) */
+@media (max-width: 1023px) {
+    .main-image-wrapper {
+        width: 90%; /* Tar upp 90% av skärmen för mindre marginaler */
+        max-width: 500px;
+    }
+}
+
+/* Mindre skärmar (mobiler) */
+@media (max-width: 600px) {
+    .main-image-wrapper {
+        width: 100%; /* Full bredd på små skärmar */
+        max-width: 100%; /* Ingen maxbredd på mobiler */
+    }
+}
 
 .nav-button {
     padding: 8px !important;

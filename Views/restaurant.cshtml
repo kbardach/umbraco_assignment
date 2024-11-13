@@ -17,7 +17,7 @@
 }
 
 <div class="container mt-4">
-    <div class="row">
+    <div class="row test-row">
         <!-- Bildsektion -->
         <div class="col-lg-6 col-md-12 text-center mb-3">
             <div class="main-image-wrapper position-relative mx-auto">
@@ -25,15 +25,13 @@
                 <button class="btn test nav-button left" onclick="prevImage()">&#10094;</button>
                 <img id="mainImage" src="@mainImageUrl" alt="@Model.Content.RestaurantName" class="main-image img-fluid rounded border" />
                 <button class="btn test nav-button right" onclick="nextImage()">&#10095;</button>
-
-
             </div>
 
             <!-- Små miniatyrbilder under huvudbilden -->
             <div class="thumbnail-container d-flex justify-content-center gap-2 flex-wrap mt-2">
                 @foreach (var imageUrl in imageUrls)
                 {
-                    <img src="@imageUrl" alt="@Model.Content.RestaurantName" class="thumbnail rounded border" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;" onclick="changeMainImage('@imageUrl')" />
+                    <img src="@imageUrl" alt="@Model.Content.RestaurantName" class="thumbnail rounded border" style="width: 70px; height: 70px; object-fit: cover; cursor: pointer;" onclick="changeMainImage('@imageUrl')" />
                 }
             </div>
 
