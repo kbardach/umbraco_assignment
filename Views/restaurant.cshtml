@@ -73,7 +73,7 @@
                 @using (Html.BeginUmbracoForm("CreateReview", "Review", FormMethod.Post))
                 {
                     <div class="card-body p-4">
-                        <h3 class="rating-title">Add a rating and a comment</h3>
+                        <h2 class="rating-title">Add a rating and a comment</h2>
                         <!-- Star Rating -->
                         <div class="mb-4">
                             <label for="rating" class="form-label"><strong>Rate @Model.Content.RestaurantName:</strong></label>
@@ -173,6 +173,14 @@
 </script>
 
 <style>
+    .ol-control button {
+        margin: 10px !important; /* Ökar mellanrummet mellan knapparna */
+        width: 40px !important; /* Ökar storleken på knapparna */
+        height: 40px !important; /* Ökar storleken på knapparna */
+        font-size: 16px!important; /* Gör text eller ikoner i knapparna större, om det finns */
+    }
+
+
     #map {
         width: 100%;
         height: 400px;
