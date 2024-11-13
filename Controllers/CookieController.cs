@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc.ViewEngines;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
-using umbraco_assignment.Models.ViewModels;
 using umbraco_assignment.Models.PublishedModels;
+using umbraco_assignment.Models.ViewModels;
 
 namespace umbraco_assignment.Controllers
 {

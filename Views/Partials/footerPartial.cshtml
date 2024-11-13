@@ -1,8 +1,20 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-<footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; 2017–2024 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+﻿@using umbraco_assignment.Interfaces
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IBaseContentModel>
 
-    <!-- Cookie Declaration -->
+@{
+    var cookies = Model.CurrentPage.StartPage.Value<IPublishedContent>("cookies");
+    var aboutUs = Model.CurrentPage.StartPage.Value<IPublishedContent>("aboutUs");
+
+}
+
+<footer class="container">
+    <p class="float-end">
+        <a href="#">Back to top</a>
+    <p>
+        &copy; 2017–2024 Company, Inc. &middot;
+        <a class="footer-link" href="@aboutUs.Url()">@aboutUs.Name</a> &middot;
+        <a class="footer-link" href="@cookies.Url()">@cookies.Name</a> &middot;
+       <a class="footer-link" href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+
 
 </footer>
