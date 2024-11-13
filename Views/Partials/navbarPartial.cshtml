@@ -1,6 +1,73 @@
 ﻿@using umbraco_assignment.Interfaces
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IBaseContentModel>
 
+@{
+    var title = Model.CurrentPage.StartPage.Name;
+    var aboutUs = Model.CurrentPage.StartPage.Value<IPublishedContent>("aboutUs");
+    var currentCulture = System.Globalization.CultureInfo.CurrentUICulture.Name;
+    var languageBranches = Model.CurrentPage.Cultures.Keys;
+    var homePage = Model.CurrentPage.StartPage.Url(culture: currentCulture);
+
+    // Check if the current page is the search page based on alias or ID
+    var isSearchPage = Model.CurrentPage.Id == 1382; // or Model.CurrentPage.Id == 1234 if you have the ID
+}
+
+<header data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md my-navbar fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="@homePage">GAFFELN&GLASET</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@homePage">@Html.Raw(title)</a>
+                    </li>
+                    @if (aboutUs != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@aboutUs.Url()">@aboutUs.Name</a>
+                        </li>
+                    }
+                </ul>
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-globe icon-margin"></i>
+                    <ul class="language-selector list-unstyled d-flex mb-0">
+                        @foreach (var language in new[] { "sv", "en-US" })
+                        {
+                            var link = Model.CurrentPage.Url(mode: UrlMode.Absolute, culture: language);
+                            <li class="language-item">
+                                <a class="nav-link @(language == currentCulture ? "active-language" : "")" href="@link">
+                                    @(language.ToUpper())
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                @* Only show search form if we're not on the search page *@
+                @if (!isSearchPage)
+                {
+                    @using (Html.BeginUmbracoForm("SearchRestaurants", "SearchSurface", FormMethod.Post, new { @class = "d-flex align-items-center", @id = "search-form" }))
+                    {
+                        <div class="input-group search-box">
+                            <input class="form-control search-input" id="searchQuery" name="query" type="search" placeholder="Search" aria-label="Search">
+                            <button class="input-group-text search-button" type="submit" aria-label="Sök">
+                                <i class="fas fa-search"></i> <!-- Magnifying glass icon -->
+                            </button>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+@* @using umbraco_assignment.Interfaces
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IBaseContentModel>
+
 
 @{
     var title = Model.CurrentPage.StartPage.Name;
@@ -58,4 +125,5 @@
             </div>
         </div>
     </nav>
-</header>
+</header> *@
+
