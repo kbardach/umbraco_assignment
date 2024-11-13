@@ -16,28 +16,29 @@
     double averageRating = reviews.Any() ? reviews.Average(r => r.Rating) : 0;
 }
 
-
 <div class="container mt-4">
     <div class="row">
         <!-- Bildsektion -->
         <div class="col-lg-6 col-md-12 text-center mb-3">
             <div class="main-image-wrapper position-relative mx-auto">
                 <!-- Stora huvudbilden med vänster och höger pilar -->
-                <button class="btn test position-absolute top-50 start-0 translate-middle-y nav-button" onclick="prevImage()">&#10094;</button>
+                <button class="btn test nav-button left" onclick="prevImage()">&#10094;</button>
                 <img id="mainImage" src="@mainImageUrl" alt="@Model.Content.RestaurantName" class="main-image img-fluid rounded border" />
-                <button class="btn test position-absolute top-50 end-0 translate-middle-y nav-button" onclick="nextImage()">&#10095;</button>
+                <button class="btn test nav-button right" onclick="nextImage()">&#10095;</button>
+
+
             </div>
 
             <!-- Små miniatyrbilder under huvudbilden -->
             <div class="thumbnail-container d-flex justify-content-center gap-2 flex-wrap mt-2">
                 @foreach (var imageUrl in imageUrls)
                 {
-                    <img src="@imageUrl" alt="@Model.Content.RestaurantName" class="thumbnail rounded border" onclick="changeMainImage('@imageUrl')" />
+                    <img src="@imageUrl" alt="@Model.Content.RestaurantName" class="thumbnail rounded border" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;" onclick="changeMainImage('@imageUrl')" />
                 }
             </div>
 
             <div class="reviews-section mt-5">
-                <h3 class="reviews-title">User Reviews</h3>
+                <h3 class="reviews-title">@Umbraco.GetDictionaryValue("Reviews")</h3>
 
                 @if (reviews != null && reviews.Any())
                 {
@@ -45,13 +46,13 @@
                     {
                         <div class="review-item border-bottom mb-3 pb-3">
                             <!-- Review Content -->
-                            <p class="review-comment"><strong>@item.Name</strong> says:</p>
+                            <p class="review-comment"><strong>@item.Name</strong></p>
                             <p class="review-text">@item.Comment</p>
 
                             <!-- Review Meta Information -->
                             <div class="review-meta">
-                                <span class="review-rating text-warning"><i class="fas fa-star"></i> @item.Rating</span>
-                                <span class="review-date text-muted">| @item.Date.ToString("MMM dd, yyyy")</span>
+                                <span class="text-warning"><i class="fas fa-star"></i> @item.Rating</span>
+                                <span class="text-muted">| @item.Date.ToString("MMM dd, yyyy")</span>
                             </div>
                         </div>
                     }
@@ -65,18 +66,20 @@
 
         <!-- Textsektion -->
         <div class="col-lg-6 col-md-12">
-            <h1 class="restaurant-name">@Model.Content.RestaurantName <span class="review-rating-title"><i class="fas fa-star"></i> @averageRating.ToString("0.0") / 5</span></h1>
-            <p class="restaurant-description">@Model.Content.Description</p>
+            <h1 class="restaurant-name">@Model.Content.RestaurantName <span class="text-warning"><i class="fas fa-star"></i> @averageRating.ToString("0.0") / 5</span></h1>
+            <p class="resto-text text-muted">@Model.Content.Description</p>
 
             <!-- Kommentar- och betygsformulär -->
-            <div class="card shadow-lg border-0 rounded mb-4 commentForm">
+            <div class="card shadow-lg border-0 rounded mb-4">
                 @using (Html.BeginUmbracoForm("CreateReview", "Review", FormMethod.Post))
                 {
-                    <div class="card-body p-4">
-                        <h2 class="rating-title">Add a rating and a comment</h2>
+                    <div class="card-body">
+                        <h2 class="rating-title">@Umbraco.GetDictionaryValue("AddRatingAndComment")</h2>
+
+
                         <!-- Star Rating -->
-                        <div class="mb-4">
-                            <label for="rating" class="form-label"><strong>Rate @Model.Content.RestaurantName:</strong></label>
+                        <div class="rating-container mb-4">
+                            <label for="rating" class="rating-title"><strong>@Model.Content.RestaurantName:</strong></label>
                             <div class="rating">
                                 <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars">&#9733;</label>
                                 <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">&#9733;</label>
@@ -85,20 +88,24 @@
                                 <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">&#9733;</label>
                             </div>
                         </div>
+
+
+
+
                         <div class="mb-4">
-                            <label for="name" class="form-label"><strong>Name: *</strong></label>
-                            <input type="text" class="form-control" id="name" name="name" required />
+                            <label for="name" class="form-label"><strong>@Umbraco.GetDictionaryValue("NameForReviews"): *</strong></label>
+                            <input type="text" class="form-control" id="name" name="name" required placeholder="@Umbraco.GetDictionaryValue("NameForReviewsPlaceholder")" />
                         </div>
                         <div class="mb-4">
-                            <label for="commentTextarea" class="form-label"><strong>Leave a comment: *</strong></label>
-                            <textarea class="form-control" id="commentTextarea" rows="4" placeholder="Write your comment here" name="comment" required></textarea>
+                            <label for="commentTextarea" class="form-label"><strong>@Umbraco.GetDictionaryValue("LeaveAComment"): *</strong></label>
+                            <textarea class="form-control" id="commentTextarea" rows="4" placeholder="@Umbraco.GetDictionaryValue("LeaveACommentPlaceholder")" name="comment" required></textarea>
                         </div>
 
                         <input type="hidden" id="restaurantId" name="restaurantId" value="@Model.Id" />
 
                         <!-- Submit Button with Spinner -->
                         <button type="submit" class="btn btn-primary btn-lg shadow-sm" id="submitButton">
-                            <span id="buttonText">Submit</span>
+                            <span id="buttonText">@Umbraco.GetDictionaryValue("RestaurantButton")</span>
                             <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                         </button>
                     </div>
@@ -108,28 +115,25 @@
     </div>
 </div>
 
-
 <!-- Div-container för kartan -->
 <div id="map"></div>
-<!-------------------------------->
 
 <script>
-    // Array med bild-URL:er och aktuell bildindex
     const imageUrls = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(imageUrls));
     let currentIndex = 0;
 
     function changeMainImage(imageUrl) {
         document.getElementById("mainImage").src = imageUrl;
-        currentIndex = imageUrls.indexOf(imageUrl); // Uppdatera aktuell bildindex
+        currentIndex = imageUrls.indexOf(imageUrl);
     }
 
     function nextImage() {
-        currentIndex = (currentIndex + 1) % imageUrls.length; // Öka index och loopa runt
+        currentIndex = (currentIndex + 1) % imageUrls.length;
         document.getElementById("mainImage").src = imageUrls[currentIndex];
     }
 
     function prevImage() {
-        currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length; // Minska index och loopa runt
+        currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
         document.getElementById("mainImage").src = imageUrls[currentIndex];
     }
 
@@ -147,7 +151,6 @@
             })
         });
 
-        // Skapa markör med Font Awesome-ikon
         const iconFeature = new ol.Feature({
             geometry: new ol.geom.Point(ol.proj.fromLonLat([@Model.Content.Longitud, @Model.Content.Latitud]))
         });
@@ -171,187 +174,6 @@
         map.addLayer(vectorLayer);
     });
 </script>
-
-<style>
-    .ol-control button {
-        margin: 10px !important; /* Ökar mellanrummet mellan knapparna */
-        width: 40px !important; /* Ökar storleken på knapparna */
-        height: 40px !important; /* Ökar storleken på knapparna */
-        font-size: 16px!important; /* Gör text eller ikoner i knapparna större, om det finns */
-    }
-
-
-    #map {
-        width: 100%;
-        height: 400px;
-        margin-top: 50px;
-        background-color: lightgrey;
-    }
-
-    .review-rating-title {
-        color: gold;
-        font-size: 28px;
-    }
-
-    .row {
-        margin-top: 76px;
-    }
-
-    .container {
-        max-width: 1200px;
-    }
-
-    .main-image-wrapper {
-        max-width: 525px;
-    }
-
-    .main-image {
-        width: 100%;
-        height: 400px; /* Fast höjd för huvudbild */
-        object-fit: cover;
-        border-radius: 5px;
-    }
-
-    .nav-button {
-        padding: 8px;
-        font-size: 24px;
-        border-radius: 5px;
-    }
-
-    .btn {
-        background: rgba(0, 0, 0, 0.4);
-        color: #fff;
-    }
-
-        .btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
-        }
-
-    .restaurant-name {
-        margin: -8px 0 20px;
-        font-size: 4rem;
-        text-align: left;
-        font-weight: 100;
-        font-family: League Gothic;
-        color: #444;
-    }
-
-    .restaurant-description {
-        text-align: left;
-        font-weight: 100;
-        font-size: 20px;
-    }
-
-    .thumbnail-container {
-        margin-top: 10px;
-    }
-
-    .thumbnail {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        cursor: pointer;
-        transition: transform 0.2s;
-    }
-
-        .thumbnail:hover {
-            transform: scale(1.1);
-        }
-
-    /* Form Styling */
-    .commentForm {
-        margin-top: 8rem;
-    }
-
-    .card-body {
-        background-color: #f0f0f0;
-        text-align: left;
-    }
-
-    .form-control {
-        font-size: 1em;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        resize: none;
-    }
-
-    .form-label {
-        font-weight: bold;
-        margin-bottom: 5px;
-        color: #444;
-    }
-
-    .rating-title {
-        font-family: League Gothic;
-        color: #444;
-    }
-
-    .rating {
-        display: flex;
-        justify-content: left;
-        gap: 5px;
-        direction: rtl;
-        color: #444;
-    }
-
-    .reviews-title {
-        font-family: League Gothic;
-    }
-
-    .mt-5 {
-        text-align: left;
-        padding: 15px 30px;
-        margin-top: 1rem !important;
-    }
-
-    .review-comment {
-        margin-bottom: 8px;
-    }
-
-    .rating input[type="radio"] {
-        display: none;
-    }
-
-    .rating label {
-        font-size: 1.5em;
-        color: #ddd;
-        cursor: pointer;
-    }
-
-    .rating input[type="radio"]:checked ~ label {
-        color: gold;
-    }
-
-    /* Submit Button Styling */
-    #submitButton {
-        background-color: #2b3035;
-        color: white !important;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 1.2em;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-        #submitButton:hover {
-            background-color: #3a4047; /* Ändra till en ljusare färg för hover */
-            transform: scale(1.05); /* Liten skaleffekt för att markera hover */
-        }
-
-        #submitButton:disabled {
-            background-color: #ccc;
-        }
-
-    #spinner {
-        display: inline-block;
-    }
-</style>
-
-
 
 <!---------------------- Script för Karta ---------------------->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css">
