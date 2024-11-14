@@ -858,6 +858,10 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     text-align: left !important; /* Säkerställ att texten är vänsterjusterad */
     font-size: 3rem;
 }
+.text-warning {
+    font-size: 2rem;
+}
+
 
 .form-control {
     resize: none;
@@ -917,6 +921,9 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     }
     .resto-text {
         padding: 0 20px;
+    }
+    .text-warning {
+        font-size: 16px;
     }
 }
 
