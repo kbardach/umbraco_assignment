@@ -703,15 +703,15 @@ footer a {
     }
 
 input[name="22b1c0c8c31249449efb918afa013f90"] {
-    visibility: hidden !important;
+    display:none !important;
 }
 
 input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
-    visibility: hidden !important;
+    display: none !important;
 }
 
 .umbraco-forms-hidden {
-    margin-top: -25px;
+    margin-top: 45px;
 }
 
 .custom-contact-form-container input[type="submit"] {
@@ -729,7 +729,7 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
         transform: scale(1.05) !important;
     }
 
-/* Media Queries för responsivitet */
+
 @media (max-width: 768px) {
     .custom-contact-form-container {
         padding: 15px !important;
@@ -749,13 +749,13 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
 
 @media (max-width: 480px) {
     .contact-us, h1 {
-        font-size: 24px !important; /* Justerar fontstorlek för mindre skärmar */
+        font-size: 24px !important;
         margin-top: 30px !important;
     }
 
     .custom-contact-form-container {
         padding: 30px !important;
-        border: 1px solid #bbb !important; /* Minska bredden på border för små skärmar */
+        border: 1px solid #bbb !important;
     }
 
         .custom-contact-form-container input[type="text"],
