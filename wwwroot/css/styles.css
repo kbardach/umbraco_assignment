@@ -925,3 +925,13 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     .nav-button.right {
         right: 10px !important; /* Flyttar knappen till höger inom bilden */
     }
+
+#submitButton {
+    background-color: #2B3035 !important;
+    border-color: #2B3035 !important;
+}
+
+#submitButton:hover {
+    background-color: #3a4047 !important; /* Ändra till en ljusare färg för hover */
+    transform: scale(1.05) !important; /* Liten skaleffekt för att markera hover */
+}
