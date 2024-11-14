@@ -27,7 +27,7 @@ namespace umbraco_assignment.Controllers
                 return CurrentTemplate(model);
             }
 
-            return null;
+            return Redirect("/error");
         }
     }
 }

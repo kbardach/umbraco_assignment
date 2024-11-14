@@ -531,179 +531,6 @@ footer a {
 
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
-/* restaurant Styling */
-
-
-/*#map {
-    width: 100%;
-    height: 400px;
-    margin-top: 50px;
-    background-color: lightgrey;
-}
-
-.review-rating-title {
-    color: gold;
-    font-size: 28px;
-}
-
-.row {
-    margin-top: 76px;
-}
-
-.container {
-    max-width: 1200px;
-}
-
-.main-image-wrapper {
-    max-width: 525px;
-}
-
-.main-image {
-    width: 100%;
-    height: 400px;*/ /* Fast höjd för huvudbild */
-    /*object-fit: cover;
-    border-radius: 5px;
-}
-
-.nav-button {
-    padding: 8px;
-    font-size: 24px;
-    border-radius: 5px;
-}
-
-.btn {
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
-}
-
-    .btn:hover {
-        background: rgba(0, 0, 0, 0.6);
-        color: #fff;
-    }
-
-.restaurant-name {
-    margin: -8px 0 20px;
-    font-size: 4rem;
-    text-align: left;
-    font-weight: 100;
-    font-family: League Gothic;
-    color: #444;
-}
-
-.restaurant-description {
-    text-align: left;
-    font-weight: 100;
-    font-size: 20px;
-}
-
-.thumbnail-container {
-    margin-top: 10px;
-}
-
-.thumbnail {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-    .thumbnail:hover {
-        transform: scale(1.1);
-    }*/
-
-/* Form Styling */
-/*.commentForm {
-    margin-top: 8rem;
-}
-
-.card-body {
-    background-color: #f0f0f0;
-    text-align: left;
-}
-
-.form-control {
-    font-size: 1em;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: none;
-}
-
-.form-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #444;
-}
-
-.rating-title {
-    font-family: League Gothic;
-    color: #444;
-}
-
-.rating {
-    display: flex;
-    justify-content: left;
-    gap: 5px;
-    direction: rtl;
-    color: #444;
-}
-
-.reviews-title {
-    font-family: League Gothic;
-}
-
-.mt-5 {
-    text-align: left;
-    padding: 15px 30px;
-    margin-top: 1rem !important;
-}
-
-.review-comment {
-    margin-bottom: 8px;
-}
-
-.rating input[type="radio"] {
-    display: none;
-}
-
-.rating label {
-    font-size: 1.5em;
-    color: #ddd;
-    cursor: pointer;
-}
-
-.rating input[type="radio"]:checked ~ label {
-    color: gold;
-}*/
-
-/* Submit Button Styling */
-/*#submitButton {
-    background-color: #2b3035;
-    color: white !important;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1.2em;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-    #submitButton:hover {
-        background-color: #3a4047;*/ /* Ändra till en ljusare färg för hover */
-        /*transform: scale(1.05);*/ /* Liten skaleffekt för att markera hover */
-    /*}
-
-    #submitButton:disabled {
-        background-color: #ccc;
-    }
-
-#spinner {
-    display: inline-block;
-}*/
-
-/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
 /* About Us Styling */
 
 .about-us-container {
@@ -864,92 +691,283 @@ footer a {
 /*----------------------------------------------- CONTACT US PAGE -----------------------------------------------------*/
 
 .contact-us, h1 {
-    text-align: center;
-    margin-top: 50px; /* Justerade marginalen för bättre responsivitet */
+    text-align: center !important;
+    /*margin-top: 50px !important;*/ /* Justerade marginalen för bättre responsivitet */
 }
 
 .custom-contact-form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    background-color: #f9f9f9 !important;
 }
 
     .custom-contact-form-container input[type="text"],
     .custom-contact-form-container input[type="email"],
     .custom-contact-form-container textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        background-color: white;
-        resize: none;
+        width: 100% !important;
+        padding: 10px !important;
+        margin-bottom: 15px !important;
+        border: 1px solid #ddd !important;
+        border-radius: 4px !important;
+        background-color: white !important;
+        resize: none !important;
     }
 
 input[name="22b1c0c8c31249449efb918afa013f90"] {
-    visibility: hidden;
+    display:none !important;
 }
 
 input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
-    visibility: hidden;
+    display: none !important;
+}
+
+.umbraco-forms-hidden {
+    margin-top: 45px;
 }
 
 .custom-contact-form-container input[type="submit"] {
     background-color: #2B3035 !important;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: -40px;
+    color: white !important;
+    padding: 10px 35px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    margin-top: -40px !important;
 }
 
     .custom-contact-form-container input[type="submit"]:hover {
         background-color: #3a4047 !important;
-        transform: scale(1.05);
+        transform: scale(1.05) !important;
     }
 
-/* Media Queries för responsivitet */
+
 @media (max-width: 768px) {
     .custom-contact-form-container {
-        padding: 15px;
+        padding: 15px !important;
     }
 
         .custom-contact-form-container input[type="text"],
         .custom-contact-form-container input[type="email"],
         .custom-contact-form-container textarea {
-            padding: 8px;
+            padding: 8px !important;
         }
 
         .custom-contact-form-container button[type="submit"] {
-            padding: 8px 12px;
-            font-size: 14px;
+            padding: 8px 12px !important;
+            font-size: 14px !important;
         }
 }
 
 @media (max-width: 480px) {
     .contact-us, h1 {
-        font-size: 24px; /* Justerar fontstorlek för mindre skärmar */
-        margin-top: 30px;
+        font-size: 24px !important;
+        margin-top: 30px !important;
     }
 
     .custom-contact-form-container {
-        padding: 30px;
-        border: 1px solid #bbb; /* Minska bredden på border för små skärmar */
+        padding: 30px !important;
+        border: 1px solid #bbb !important;
     }
 
         .custom-contact-form-container input[type="text"],
         .custom-contact-form-container input[type="email"],
         .custom-contact-form-container textarea {
-            padding: 6px;
+            padding: 6px !important;
         }
 
         .custom-contact-form-container button[type="submit"] {
-            padding: 6px 10px;
-            font-size: 12px;
+            padding: 6px 10px !important;
+            font-size: 12px !important;
         }
 }
+
 /*---------------------------------------------------------------------------------------------------------------------*/
+/*------------------------RESTAURANG SIDA---------------------------- */
+.ol-control button {
+    margin: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 16px !important;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    margin-top: 50px;
+    background-color: lightgrey;
+}
+
+.review-rating-title {
+    color: black !important;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+.thumbnail {
+    width: 78.5px !important;
+    height: 80px !important;
+    object-fit: cover !important;
+    cursor: pointer !important;
+    transition: transform 0.2s !important;
+}
+
+    .thumbnail:hover {
+        transform: scale(1.1) !important;
+    }
+
+.row {
+    margin-top: 76px !important;
+}
+
+.rating-container {
+    margin-bottom: 1rem !important;
+}
+
+.rating-title {
+    display: block !important; /* Gör titeln block så att stjärnorna hamnar under */
+    margin-bottom: 0.5rem !important; /* Lägger till avstånd mellan titeln och stjärnorna */
+    font-weight: bold !important;
+}
+
+.rating {
+    display: inline-flex !important;
+    direction: rtl !important; /* Gör att stjärnorna fylls från höger till vänster */
+    gap: 5px !important;
+    margin-top: -10px !important; /* Lägger till lite avstånd från ovanstående text */
+}
+
+    .rating input[type="radio"] {
+        display: none !important; /* Dölj radioknapparna */
+    }
+
+    .rating label {
+        font-size: 2rem !important; /* Justera storleken på stjärnorna */
+        color: #ccc !important; /* Grundfärg för stjärnorna */
+        cursor: pointer !important;
+        transition: color 0.2s !important;
+    }
+
+        .rating input[type="radio"]:checked ~ label,
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: gold !important; /* Färg för markerade eller svävande stjärnor */
+        }
+
+
+
+.resto-text {
+    margin-bottom: 200px !important;
+    padding-right: 50px;
+    font-size: 18px;
+}
+
+.card-body {
+    background-color: #f0f0f0;
+}
+
+.restaurant-name {
+    text-align: left !important; /* Säkerställ att texten är vänsterjusterad */
+    font-size: 3rem;
+}
+.text-warning {
+    font-size: 2rem;
+}
+
+
+.form-control {
+    resize: none;
+}
+
+
+.reviews-section {
+    text-align: start !important;
+    padding: 0 60px !important;
+}
+
+
+.main-image-wrapper {
+    position: relative !important;
+    width: 100%; /* Anpassar bredden till förälder */
+    max-width: 525px; /* Sätter en maxbredd för stora skärmar */
+    height: 400px; /* Automatisk höjd baserat på innehållets bredd */
+    margin: auto; /* Centrerar wrappern */
+}
+
+.main-image {
+    width: 100% !important; /* Tar upp hela bredden av wrappern */
+    height: 400px !important; /* Automatisk höjd för att bibehålla proportionerna */
+    object-fit: cover !important; /* Täcker ytan utan att förlora proportioner */
+    border-radius: 5px !important; /* Rundade hörn */
+}
+
+/* Media queries för olika skärmstorlekar */
+
+/* Större skärmar */
+@media (min-width: 1024px) {
+    .main-image-wrapper {
+        width: 80%; /* Ger lite "luft" runt bilden */
+        max-width: 550px; /* Maximal bredd på större skärmar */
+    }
+}
+
+/* Medelstora skärmar (tablets) */
+@media (max-width: 1023px) {
+    .main-image-wrapper {
+        width: 90%; /* Tar upp 90% av skärmen för mindre marginaler */
+        max-width: 500px;
+    }
+}
+
+/* Mindre skärmar (mobiler) */
+@media (max-width: 600px) {
+    .main-image-wrapper {
+        width: 100%; /* Full bredd på små skärmar */
+        max-width: 100%; /* Ingen maxbredd på mobiler */
+    }
+    .reviews-section {
+        padding: 20px !important;
+    }
+    .restaurant-name {
+        padding: 0 20px !important;
+    }
+    .resto-text {
+        padding: 0 20px;
+    }
+    .text-warning {
+        font-size: 16px;
+    }
+}
+
+.nav-button {
+    padding: 8px !important;
+    font-size: 24px !important;
+    border-radius: 5px !important;
+    background: rgba(0, 0, 0, 0.4) !important; /* Genomskinlig bakgrund för bättre synlighet */
+    color: #fff !important;
+    border: none !important;
+    position: absolute !important; /* För att positionera dem inom bilden */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    cursor: pointer !important;
+}
+
+    .nav-button.left {
+        left: 10px !important; /* Flyttar knappen till vänster inom bilden */
+    }
+
+    .nav-button.right {
+        right: 10px !important; /* Flyttar knappen till höger inom bilden */
+    }
+
+#submitButton {
+    background-color: #2B3035 !important;
+    border-color: #2B3035 !important;
+}
+
+#submitButton:hover {
+    background-color: #3a4047 !important; /* Ändra till en ljusare färg för hover */
+    transform: scale(1.05) !important; /* Liten skaleffekt för att markera hover */
+}

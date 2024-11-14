@@ -58,6 +58,22 @@ namespace umbraco_assignment.Models.PublishedModels
 		public virtual global::System.Nullable<global::System.Guid> Form => this.Value<global::System.Nullable<global::System.Guid>>(_publishedValueFallback, "form");
 
 		///<summary>
+		/// Latitud
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("latitud")]
+		public virtual string Latitud => this.Value<string>(_publishedValueFallback, "latitud");
+
+		///<summary>
+		/// Longitud
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("longitud")]
+		public virtual string Longitud => this.Value<string>(_publishedValueFallback, "longitud");
+
+		///<summary>
 		/// MetaDescription
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
