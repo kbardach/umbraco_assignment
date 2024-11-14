@@ -677,94 +677,99 @@ footer a {
 /*----------------------------------------------- CONTACT US PAGE -----------------------------------------------------*/
 
 .contact-us, h1 {
-    text-align: center;
-    margin-top: 50px; /* Justerade marginalen för bättre responsivitet */
+    text-align: center !important;
+    margin-top: 50px !important; /* Justerade marginalen för bättre responsivitet */
 }
 
 .custom-contact-form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    background-color: #f9f9f9 !important;
 }
 
     .custom-contact-form-container input[type="text"],
     .custom-contact-form-container input[type="email"],
     .custom-contact-form-container textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        background-color: white;
-        resize: none;
+        width: 100% !important;
+        padding: 10px !important;
+        margin-bottom: 15px !important;
+        border: 1px solid #ddd !important;
+        border-radius: 4px !important;
+        background-color: white !important;
+        resize: none !important;
     }
 
 input[name="22b1c0c8c31249449efb918afa013f90"] {
-    visibility: hidden;
+    visibility: hidden !important;
 }
 
 input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
-    visibility: hidden;
+    visibility: hidden !important;
+}
+
+.umbraco-forms-hidden {
+    margin-top: -25px;
 }
 
 .custom-contact-form-container input[type="submit"] {
     background-color: #2B3035 !important;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: -40px;
+    color: white !important;
+    padding: 10px 35px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    margin-top: -40px !important;
 }
 
     .custom-contact-form-container input[type="submit"]:hover {
         background-color: #3a4047 !important;
-        transform: scale(1.05);
+        transform: scale(1.05) !important;
     }
 
 /* Media Queries för responsivitet */
 @media (max-width: 768px) {
     .custom-contact-form-container {
-        padding: 15px;
+        padding: 15px !important;
     }
 
         .custom-contact-form-container input[type="text"],
         .custom-contact-form-container input[type="email"],
         .custom-contact-form-container textarea {
-            padding: 8px;
+            padding: 8px !important;
         }
 
         .custom-contact-form-container button[type="submit"] {
-            padding: 8px 12px;
-            font-size: 14px;
+            padding: 8px 12px !important;
+            font-size: 14px !important;
         }
 }
 
 @media (max-width: 480px) {
     .contact-us, h1 {
-        font-size: 24px; /* Justerar fontstorlek för mindre skärmar */
-        margin-top: 30px;
+        font-size: 24px !important; /* Justerar fontstorlek för mindre skärmar */
+        margin-top: 30px !important;
     }
 
     .custom-contact-form-container {
-        padding: 30px;
-        border: 1px solid #bbb; /* Minska bredden på border för små skärmar */
+        padding: 30px !important;
+        border: 1px solid #bbb !important; /* Minska bredden på border för små skärmar */
     }
 
         .custom-contact-form-container input[type="text"],
         .custom-contact-form-container input[type="email"],
         .custom-contact-form-container textarea {
-            padding: 6px;
+            padding: 6px !important;
         }
 
         .custom-contact-form-container button[type="submit"] {
-            padding: 6px 10px;
-            font-size: 12px;
+            padding: 6px 10px !important;
+            font-size: 12px !important;
         }
 }
+
 /*---------------------------------------------------------------------------------------------------------------------*/
 /*------------------------RESTAURANG SIDA---------------------------- */
 .ol-control button {
