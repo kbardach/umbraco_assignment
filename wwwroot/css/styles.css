@@ -678,7 +678,7 @@ footer a {
 
 .contact-us, h1 {
     text-align: center !important;
-    margin-top: 50px !important; /* Justerade marginalen för bättre responsivitet */
+    /*margin-top: 50px !important;*/ /* Justerade marginalen för bättre responsivitet */
 }
 
 .custom-contact-form-container {
@@ -846,7 +846,8 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
 
 .resto-text {
     margin-bottom: 200px !important;
-    padding: 0 35px;
+    padding-right: 50px;
+    font-size: 18px;
 }
 
 .card-body {
@@ -855,7 +856,7 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
 
 .restaurant-name {
     text-align: left !important; /* Säkerställ att texten är vänsterjusterad */
-    padding: 0 35px;
+    font-size: 3rem;
 }
 
 .form-control {
@@ -865,7 +866,7 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
 
 .reviews-section {
     text-align: start !important;
-    padding: 35px;
+    padding: 0 60px !important;
 }
 
 
@@ -907,6 +908,15 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     .main-image-wrapper {
         width: 100%; /* Full bredd på små skärmar */
         max-width: 100%; /* Ingen maxbredd på mobiler */
+    }
+    .reviews-section {
+        padding: 20px !important;
+    }
+    .restaurant-name {
+        padding: 0 20px !important;
+    }
+    .resto-text {
+        padding: 0 20px;
     }
 }
 
