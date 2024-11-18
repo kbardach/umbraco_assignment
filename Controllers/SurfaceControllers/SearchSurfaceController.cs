@@ -32,13 +32,12 @@ namespace umbraco_assignment.Controllers.SurfaceControllers
                 var content = umbracoContext.Content;
 
                 var settingsPage = content?.GetAtRoot().DescendantsOrSelf<Settings>().FirstOrDefault();
-                var errorPage = content?.GetAtRoot().DescendantsOrSelf<Error>().FirstOrDefault();
                 var searchPage = settingsPage?.SearchPage as Search;
-                var model = new ErrorPageViewModel(errorPage, _umbracoContextAccessor);
+
 
                 if (content == null || searchPage == null)
                 {
-                    return View("Error", model); // Example error view for null content
+                    return Redirect("/Error");
                 }
 
                 var searchPageUrl = searchPage.Url();
