@@ -52,6 +52,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="uSync\v14\Media\" />
 	  <Folder Include="wwwroot\media\" />
 	</ItemGroup>
 
