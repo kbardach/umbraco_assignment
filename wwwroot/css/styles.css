@@ -690,9 +690,9 @@ footer a {
 /*---------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------- CONTACT US PAGE -----------------------------------------------------*/
 
-.contact-us, h1 {
+.contact-us-h1 {
     text-align: center !important;
-    /*margin-top: 50px !important;*/ /* Justerade marginalen för bättre responsivitet */
+    margin-top: 50px !important;
 }
 
 .custom-contact-form-container {
