@@ -9,8 +9,7 @@
     var languageBranches = Model.CurrentPage.Cultures.Keys;
     var homePage = Model.CurrentPage.StartPage.Url(culture: currentCulture);
 
-    // Check if the current page is the search page based on alias or ID
-    var isSearchPage = Model.CurrentPage.Id == 1382; // or Model.CurrentPage.Id == 1234 if you have the ID
+    var isSearchPage = Model.CurrentPage.ContentType.Alias == "search";
 }
 
 <header data-bs-theme="dark">
