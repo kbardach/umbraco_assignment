@@ -4,6 +4,7 @@
 @{
     var title = Model.CurrentPage.StartPage.Name;
     var aboutUs = Model.CurrentPage.StartPage.Value<IPublishedContent>("aboutUs");
+    var contactUs = Model.CurrentPage.StartPage.Value<IPublishedContent>("contactUs");
     var currentCulture = System.Globalization.CultureInfo.CurrentUICulture.Name;
     var languageBranches = Model.CurrentPage.Cultures.Keys;
     var homePage = Model.CurrentPage.StartPage.Url(culture: currentCulture);
@@ -28,6 +29,12 @@
                     {
                         <li class="nav-item">
                             <a class="nav-link" href="@aboutUs.Url()">@aboutUs.Name</a>
+                        </li>
+                    }
+                    @if (contactUs != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@contactUs.Url()">@contactUs.Name</a>
                         </li>
                     }
                 </ul>

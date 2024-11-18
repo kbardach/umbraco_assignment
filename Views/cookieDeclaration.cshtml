@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using umbraco_assignment.Models.ViewModels
+
+@inherits UmbracoViewPage<CookiePageViewModel>
+
+@{
+	Layout = "root.cshtml";
+}
+
+<div class="container cookie-declaration-page">
+    <h1>@Model.Content.Title</h1>
+    <div>
+        @Model.Content.Content
+    </div>
+</div>

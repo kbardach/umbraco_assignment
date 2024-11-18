@@ -1,0 +1,31 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using umbraco_assignment.Models.ViewModels
+
+@inherits UmbracoViewPage<PrivacyTermsPageViewModel>
+
+@{
+
+	Layout = "root.cshtml";
+}
+
+<div class="privacy-terms-container">
+    <h1>@Model.Content.Title</h1>
+
+    <section>
+        <div class="privacy-text">
+            @Model.Content.Privacy
+        </div>
+    </section>
+
+    <section>
+        <div class="terms-text">
+            @Model.Content.Terms
+        </div>
+    </section>
+
+    <section>
+        <div class="contact-text">
+            @Model.Content.Contact
+        </div>
+    </section>
+</div>
