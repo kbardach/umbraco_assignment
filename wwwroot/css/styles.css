@@ -876,6 +876,11 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     font-size: 2rem;
 }
 
+.text-warning-review {
+    font-size: 1.2rem;
+    color: rgb(255 193 7);
+}
+
 
 .form-control {
     resize: none;
