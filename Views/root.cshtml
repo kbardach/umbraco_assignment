@@ -11,7 +11,7 @@
 
     var gtm = string.Empty;
     var metaDescription = Model.CurrentPage.Value<string>("MetaDescription") ?? string.Empty;
-    var title = Model.CurrentPage.Value<string>("title") ?? Model.CurrentPage.Name;
+    var title = Model.CurrentPage.Value<string>("seoTitle") ?? Model.CurrentPage.Name;
     var canonicalUrl = Model.CurrentPage.Url(mode: UrlMode.Absolute, culture: CultureInfo.CurrentUICulture.Name);
 }
    
@@ -30,7 +30,7 @@
 
         <!-- SEO-meta taggar -->
         <meta name="description" content="@Html.Raw(metaDescription)" />
-        <meta name="title" content="@Html.Raw(title)" />
+    <meta name="seoTitle" content="@Html.Raw(title)" />
 
         <!-- Sidtitel -->
         <title>@Html.Raw(title)</title>

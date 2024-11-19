@@ -119,7 +119,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => global::umbraco_assignment.Models.PublishedModels.Seo.GetTitle(this, _publishedValueFallback);
+		[ImplementPropertyType("seoTitle")]
+		public virtual string SeoTitle => global::umbraco_assignment.Models.PublishedModels.Seo.GetSeoTitle(this, _publishedValueFallback);
 	}
 }

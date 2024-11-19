@@ -25,7 +25,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		/// <summary>Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Title { get; }
+		string SeoTitle { get; }
 	}
 
 	/// <summary>SEO</summary>
@@ -64,12 +64,12 @@ namespace umbraco_assignment.Models.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => GetTitle(this, _publishedValueFallback);
+		[ImplementPropertyType("seoTitle")]
+		public virtual string SeoTitle => GetSeoTitle(this, _publishedValueFallback);
 
 		/// <summary>Static getter for Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetTitle(ISeo that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "title");
+		public static string GetSeoTitle(ISeo that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "seoTitle");
 	}
 }
