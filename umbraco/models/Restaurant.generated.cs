@@ -139,7 +139,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		public virtual string MetaRobots => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaRobots(this, _publishedValueFallback);
 
 		///<summary>
-		/// Title
+		/// Seo Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

@@ -99,6 +99,14 @@ namespace umbraco_assignment.Models.PublishedModels
 		public virtual string InfoText => this.Value<string>(_publishedValueFallback, "infoText");
 
 		///<summary>
+		/// Privacy & Terms
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("privacyTerms")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent PrivacyTerms => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "privacyTerms");
+
+		///<summary>
 		/// MetaDescription
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
@@ -115,7 +123,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		public virtual string MetaRobots => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaRobots(this, _publishedValueFallback);
 
 		///<summary>
-		/// Title
+		/// Seo Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
