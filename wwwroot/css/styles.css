@@ -1050,3 +1050,82 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
             font-size: 1.1rem;
         }
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+/*------------------------ CategoryContainer ---------------------------- */
+h1.custom-heading {
+    margin-top: 50px !important;
+}
+
+
+.categories-container .category-item {
+    margin-bottom: 20px !important;
+}
+
+.categories-container .category-card {
+    border: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.categories-container .category-image-container {
+    width: 200px !important;
+    height: 200px !important;
+    overflow: hidden !important;
+}
+
+.categories-container .category-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.categories-container .category-content {
+    padding: 15px !important;
+    flex: 1 !important;
+}
+
+.categories-container .category-title {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+}
+
+.categories-container .category-description {
+    font-size: 1rem !important;
+    margin-bottom: 10px !important;
+}
+
+.categories-container .category-link {
+    margin-top: 10px !important;
+    width: 179px !important;
+}
+
+.category-link {
+    background-color: #2B3035 !important;
+    border-color: #2B3035 !important;
+}
+
+    .category-link:hover {
+        background-color: #3a4047 !important;
+        transform: scale(1.05) !important;
+    }
+
+/* Media Query för mobilanpassning */
+@media (max-width: 768px) {
+    .categories-container .category-card {
+        flex-direction: column !important;
+    }
+
+    .categories-container .category-image-container {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .categories-container .category-image {
+        width: 100% !important;
+        height: 250px !important;
+    }
+}
+
+
+

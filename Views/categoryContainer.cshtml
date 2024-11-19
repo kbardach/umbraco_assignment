@@ -1,0 +1,35 @@
+﻿@using umbraco_assignment.Models.ViewModels
+@inherits UmbracoViewPage<CategoryContainerViewModel>
+
+@{
+    Layout = "root.cshtml";
+}
+
+<h1 class="custom-heading text-center mb-5">@Model.Content.Name</h1> <!-- Textcentrering och marginal för rubriken -->
+
+<div class="categories-container container">
+    @if (Model.Categories != null && Model.Categories.Any())
+    {
+        <div class="row">
+            @foreach (var category in Model.Categories)
+            {
+                <div class="col-md-12 mb-4 category-item">
+                    <div class="card h-100 shadow-sm category-card">
+                        <div class="category-image-container">
+                            <img src="@category.Image?.Url()" class="category-image" alt="@category.Name" />
+                        </div>
+                        <div class="category-content">
+                            <h2 class="category-title">@category.Name</h2>
+                            <p class="category-description">@category.Description</p>
+                            <a href="@category.Url()" class="btn btn-primary category-link">@($"{Umbraco.GetDictionaryValue("ButtonCategoryContainer")}  {category.Name}")</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>Inga kategorier tillgängliga.</p>
+    }
+</div>

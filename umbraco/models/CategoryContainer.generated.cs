@@ -21,7 +21,7 @@ namespace umbraco_assignment.Models.PublishedModels
 {
 	/// <summary>CategoryContainer</summary>
 	[PublishedModel("categoryContainer")]
-	public partial class CategoryContainer : BaseContentModel
+	public partial class CategoryContainer : BaseContentModel, IMetaData, ISeo
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -49,5 +49,29 @@ namespace umbraco_assignment.Models.PublishedModels
 		}
 
 		// properties
+
+		///<summary>
+		/// MetaDescription
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaDescription")]
+		public virtual string MetaDescription => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// MetaRobots
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaRobots")]
+		public virtual string MetaRobots => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaRobots(this, _publishedValueFallback);
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("seoTitle")]
+		public virtual string SeoTitle => global::umbraco_assignment.Models.PublishedModels.Seo.GetSeoTitle(this, _publishedValueFallback);
 	}
 }
