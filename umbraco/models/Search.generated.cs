@@ -21,7 +21,7 @@ namespace umbraco_assignment.Models.PublishedModels
 {
 	/// <summary>Search</summary>
 	[PublishedModel("search")]
-	public partial class Search : BaseContentModel, IMetaData
+	public partial class Search : BaseContentModel, IMetaData, ISeo
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -81,5 +81,13 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("metaRobots")]
 		public virtual string MetaRobots => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaRobots(this, _publishedValueFallback);
+
+		///<summary>
+		/// Seo Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("seoTitle")]
+		public virtual string SeoTitle => global::umbraco_assignment.Models.PublishedModels.Seo.GetSeoTitle(this, _publishedValueFallback);
 	}
 }
