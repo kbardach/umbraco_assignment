@@ -4,6 +4,7 @@ using umbraco_assignment.Business;
 using Umbraco.StorageProviders.AzureBlob;
 using umbraco_assignment.Business.Services.Interfaces;
 using umbraco_assignment.Business.Services;
+using umbraco_assignment.Business.ScheduledJob;
 //-----------------------------------------------------------------------------
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -29,6 +30,7 @@ builder.Services.AddSingleton<IModelsGenerator, CustomModelsGenerator>();
 builder.Services.AddScoped<ISitemapService, SitemapService>();
 builder.Services.AddTransient<IRestaurantService, RestaurantService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<ReviewCleanupJob>();
 
 WebApplication app = builder.Build();
 

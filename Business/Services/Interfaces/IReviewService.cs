@@ -7,5 +7,7 @@ namespace umbraco_assignment.Business.Services.Interfaces
         void CreateReview(Review review);
 
         List<Review> GetReviews(int restaurantId);
+
+        void DeleteOldReviews(int daysOld);
     }
 }

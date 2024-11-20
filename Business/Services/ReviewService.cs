@@ -76,5 +76,19 @@ namespace umbraco_assignment.Business.Services
             }
         }
 
+        public void DeleteOldReviews(int daysOld)
+        {
+            var connection = _configuration.GetConnectionString("umbracoDbDSN");
+
+            using (var db = new Database(connection, DatabaseType.SqlServer2012, SqlClientFactory.Instance))
+            {
+                var sql = @"
+            DELETE FROM dbo.Reviews
+            WHERE DATEDIFF(DAY, date, GETDATE()) > @0";
+
+                db.Execute(sql, daysOld);
+            }
+        }
+
     }
 }
