@@ -56,7 +56,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("cookieDeclaration")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString CookieDeclaration => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "cookieDeclaration");
+		public virtual string CookieDeclaration => this.Value<string>(_publishedValueFallback, "cookieDeclaration");
 
 		///<summary>
 		/// Title

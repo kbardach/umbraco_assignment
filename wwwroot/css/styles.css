@@ -1110,7 +1110,6 @@ h1.custom-heading {
         transform: scale(1.05) !important;
     }
 
-/* Media Query för mobilanpassning */
 @media (max-width: 768px) {
     .categories-container .category-card {
         flex-direction: column !important;
@@ -1127,5 +1126,65 @@ h1.custom-heading {
     }
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
+/*------------------------ Cookie Deklaration ---------------------------- */
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.cookie-declaration {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    background-color: #fff; 
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+}
+
+    .cookie-declaration p {
+        margin-bottom: 10px; 
+    }
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .cookie-declaration {
+        font-size: 0.95rem;
+        padding: 40px; 
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1100px !important;
+    }
+
+    h1 {
+        font-size: 2.8rem; 
+    }
+
+    .cookie-declaration {
+        font-size: 1rem;
+        padding: 50px !important; 
+    }
+}
 
 

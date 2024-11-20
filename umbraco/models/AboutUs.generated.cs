@@ -80,7 +80,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("more")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString More => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "more");
+		public virtual string More => this.Value<string>(_publishedValueFallback, "more");
 
 		///<summary>
 		/// More Header
@@ -96,7 +96,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("ourStory")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString OurStory => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "ourStory");
+		public virtual string OurStory => this.Value<string>(_publishedValueFallback, "ourStory");
 
 		///<summary>
 		/// Our Story Header
@@ -112,7 +112,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("ourValues")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString OurValues => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "ourValues");
+		public virtual string OurValues => this.Value<string>(_publishedValueFallback, "ourValues");
 
 		///<summary>
 		/// Slogan
