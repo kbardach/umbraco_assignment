@@ -19,14 +19,14 @@ using Umbraco.Cms.Core.Web;
 
 namespace umbraco_assignment.Models.PublishedModels
 {
-	/// <summary>Search</summary>
-	[PublishedModel("search")]
-	public partial class Search : BaseContentModel, IMetaData
+	/// <summary>Cookie Declaration</summary>
+	[PublishedModel("cookieDeclaration")]
+	public partial class CookieDeclaration : BaseContentModel, IMetaData
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
-		public new const string ModelTypeAlias = "search";
+		public new const string ModelTypeAlias = "cookieDeclaration";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
@@ -35,14 +35,14 @@ namespace umbraco_assignment.Models.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Search, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<CookieDeclaration, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public Search(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public CookieDeclaration(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -51,12 +51,12 @@ namespace umbraco_assignment.Models.PublishedModels
 		// properties
 
 		///<summary>
-		/// NoResultsMessage
+		/// Content
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("noResultsMessage")]
-		public virtual string NoResultsMessage => this.Value<string>(_publishedValueFallback, "noResultsMessage");
+		[ImplementPropertyType("content")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Content => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "content");
 
 		///<summary>
 		/// Title
