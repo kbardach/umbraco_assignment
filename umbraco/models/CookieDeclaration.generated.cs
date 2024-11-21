@@ -19,14 +19,14 @@ using Umbraco.Cms.Core.Web;
 
 namespace umbraco_assignment.Models.PublishedModels
 {
-	/// <summary>Privacy & Terms</summary>
-	[PublishedModel("privacyTerms")]
-	public partial class PrivacyTerms : BaseContentModel, IMetaData, ISeo
+	/// <summary>Cookie Declaration</summary>
+	[PublishedModel("cookieDeclaration")]
+	public partial class CookieDeclaration : BaseContentModel, IMetaData
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
-		public new const string ModelTypeAlias = "privacyTerms";
+		public new const string ModelTypeAlias = "cookieDeclaration";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
@@ -35,14 +35,14 @@ namespace umbraco_assignment.Models.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<PrivacyTerms, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<CookieDeclaration, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public PrivacyTerms(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public CookieDeclaration(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -51,28 +51,12 @@ namespace umbraco_assignment.Models.PublishedModels
 		// properties
 
 		///<summary>
-		/// Contact
+		/// Content
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("contact")]
-		public virtual string Contact => this.Value<string>(_publishedValueFallback, "contact");
-
-		///<summary>
-		/// Privacy
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("privacy")]
-		public virtual string Privacy => this.Value<string>(_publishedValueFallback, "privacy");
-
-		///<summary>
-		/// Terms
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("terms")]
-		public virtual string Terms => this.Value<string>(_publishedValueFallback, "terms");
+		[ImplementPropertyType("content")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Content => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "content");
 
 		///<summary>
 		/// Title
@@ -97,13 +81,5 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("metaRobots")]
 		public virtual string MetaRobots => global::umbraco_assignment.Models.PublishedModels.MetaData.GetMetaRobots(this, _publishedValueFallback);
-
-		///<summary>
-		/// Seo Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("seoTitle")]
-		public virtual string SeoTitle => global::umbraco_assignment.Models.PublishedModels.Seo.GetSeoTitle(this, _publishedValueFallback);
 	}
 }
