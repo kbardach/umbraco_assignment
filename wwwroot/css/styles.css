@@ -931,18 +931,24 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     .main-image-wrapper {
         width: 100%; /* Full bredd på små skärmar */
         max-width: 100%; /* Ingen maxbredd på mobiler */
+        margin-top: -54px;
     }
     .reviews-section {
         padding: 20px !important;
     }
     .restaurant-name {
         padding: 0 20px !important;
+        margin-top: 0px !important;
     }
     .resto-text {
         padding: 0 20px;
+        margin-bottom: 40px !important;
     }
     .text-warning {
         font-size: 16px;
+    }
+    .mb-3 {
+         margin-bottom: 0 !important; 
     }
 }
 
