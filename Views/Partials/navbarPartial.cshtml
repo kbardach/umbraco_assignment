@@ -58,7 +58,7 @@
                     @using (Html.BeginUmbracoForm("SearchRestaurants", "SearchSurface", FormMethod.Post, new { @class = "d-flex align-items-center", @id = "search-form" }))
                     {
                         <div class="input-group search-box">
-                            <input class="form-control search-input" id="searchQuery" name="query" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control search-input" id="searchQuery" name="query" type="search" placeholder="@(Umbraco.GetDictionaryValue("SearchBarPlaceholder"))" aria-label="Search">
                             <button class="input-group-text search-button" type="submit" aria-label="Sök" disabled>
                                 <i class="fas fa-search"></i>
                             </button>
