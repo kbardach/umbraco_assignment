@@ -35,17 +35,12 @@ body {
     color: #444 !important;
     margin-right: 0.5rem;
     font-weight: 600 !important;
+    padding: 0 0.2rem !important;
 }
 
 .nav-item .mx-1 {
-    padding: 0 0.2rem !important;
     color: #444 !important; 
 }
-
-/*span{
-    color: #444;
-    font-weight:500;
-}*/
 
 .icon-margin {
     margin-right: 5px;
@@ -82,22 +77,33 @@ form .btn-outline-secondary {
 }
 
 .fa-solid {
-    margin-right: 10px;
+    margin-right: 2px;
 }
 
-.language-selector .language-item a {
-    color: #333;
-    text-decoration: none;
+.language-selector .language-item a.active-language,
+.nav-link.active {
+    position: relative; /* Behövs för att ::after ska fungera */
 }
 
-.language-selector .language-item a.active-language {
-    text-decoration: underline !important;
-    font-weight: bold;
+    /* Anpassa understräcket */
+    .language-selector .language-item a.active-language::after,
+    .nav-link.active::after {
+        content: ""; /* Pseudo-element för understräcket */
+        position: absolute;
+        bottom: -1px; /* Justerar avståndet mellan text och understräck */
+        left: 0;
+        width: 100%; /* Full bredd på texten */
+        height: 3px; /* Tjockare understräck */
+        background-color: #3333 !important; /* Färg på understräcket */
+        border-radius: 1.5px;
+    }
+
+/* Hover-effekt */
+.language-selector .language-item a:hover,
+.nav-link:hover {
+    text-decoration: none; /* Undvik vanlig understrykning */
 }
 
-.language-selector .language-item a:hover {
-    text-decoration: underline;
-}
 
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
