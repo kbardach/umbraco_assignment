@@ -33,6 +33,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const backToTopButton = document.getElementById("back-to-top");
+
+    if (backToTopButton) {
+        backToTopButton.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Smidig scrollning till toppen
+            });
+        });
+    }
+});
+
 //-----------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------Back to Top--------------------------------------------------------
 

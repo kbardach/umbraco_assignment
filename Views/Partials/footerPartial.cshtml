@@ -10,12 +10,14 @@
 }
 
 <footer class="container">
-    <p class="float-end">
-        <a href="#">Back to top</a>
-    <p>
-        &copy; 2017–2024 Company, Inc. &middot;
-        <a class="footer-link" href="@aboutUs.Url()">@aboutUs.Name</a> &middot;
-        <a class="footer-link" href="@contactUs.Url()">@contactUs.Name</a> &middot;
-        <a class="footer-link" href="@privacyTerms.Url()">@privacyTerms.Name</a> &middot;
-        <a class="footer-link" href="@cookies.Url()">@cookies.Name</a>
+        <div>
+            &copy; 2017–2024 Company, Inc. &middot;
+            <a class="footer-link" href="@aboutUs.Url()">@aboutUs.Name</a> &middot;
+            <a class="footer-link" href="@contactUs.Url()">@contactUs.Name</a> &middot;
+            <a class="footer-link" href="@privacyTerms.Url()">@privacyTerms.Name</a> &middot;
+            <a class="footer-link" href="@cookies.Url()">@cookies.Name</a>
+        </div>
+        <button id="back-to-top" class="btn bottom-0 end-0 m-2" style="color:#007bff">
+            @(Umbraco.GetDictionaryValue("ScrollToTopFooter"))
+        </button>
 </footer>
