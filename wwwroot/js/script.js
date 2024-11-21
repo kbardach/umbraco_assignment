@@ -39,3 +39,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //---------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------ Change language in form --------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Hämta språket från <html lang=""> taggen
+    const language = document.documentElement.lang || "en"; // Standard till engelska om lang saknas
+
+    document.querySelectorAll("[required]").forEach(function (input) {
+        input.oninvalid = function (e) {
+            if (language === "en") {
+                e.target.setCustomValidity("Please fill out this field.");
+            } else if (language === "sv") {
+                e.target.setCustomValidity("Fyll i det här fältet.");
+            } else {
+                e.target.setCustomValidity(""); // Fallback för andra språk
+            }
+        };
+        input.oninput = function (e) {
+            e.target.setCustomValidity(""); // Återställ vid ny inmatning
+        };
+    });
+});
+//---------------------------------------------------------------------------------------------------------------------------------
+

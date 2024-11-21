@@ -79,6 +79,19 @@
 
         map.addLayer(vectorLayer);
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Hämta alla inputfält som är obligatoriska (Umbraco markerar dem med "data-val-required")
+        const requiredFields = document.querySelectorAll("[data-val-required]");
+
+        // Lägg till HTML5's 'required'-attribut på dessa fält
+        requiredFields.forEach(function (field) {
+            field.setAttribute("required", "required");
+        });
+
+        console.log("Required attribut har lagts till på obligatoriska fält!");
+    });
+
 </script>
 
 <style>
