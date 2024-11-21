@@ -1004,7 +1004,7 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     .privacy-terms-container section {
         margin-bottom: 40px;
         padding: 20px;
-        background-color: #f9f9f9; 
+        background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
@@ -1016,15 +1016,15 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
         color: #555;
     }
 
-        .privacy-terms-container .contact-text a {
-            color: #0056b3;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .privacy-terms-container .contact-text a, .privacy-text a {
+        color: #0056b3;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-            .privacy-terms-container .contact-text a:hover {
-                text-decoration: underline;
-            }
+        .privacy-terms-container .contact-text a:hover, .privacy-text a:hover {
+            text-decoration: underline;
+        }
 
 @media (min-width: 576px) {
     .privacy-terms-container h1 {

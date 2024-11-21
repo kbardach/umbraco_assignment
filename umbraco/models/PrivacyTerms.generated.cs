@@ -56,7 +56,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("contact")]
-		public virtual string Contact => this.Value<string>(_publishedValueFallback, "contact");
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Contact => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "contact");
 
 		///<summary>
 		/// Privacy
@@ -64,7 +64,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("privacy")]
-		public virtual string Privacy => this.Value<string>(_publishedValueFallback, "privacy");
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Privacy => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "privacy");
 
 		///<summary>
 		/// Terms
@@ -72,7 +72,7 @@ namespace umbraco_assignment.Models.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.1+6caf53e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("terms")]
-		public virtual string Terms => this.Value<string>(_publishedValueFallback, "terms");
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Terms => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "terms");
 
 		///<summary>
 		/// Title
