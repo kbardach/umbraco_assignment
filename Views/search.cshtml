@@ -23,7 +23,7 @@
 
 
 <div class="text-center my-4">
-    <h1>@Model.Content.Title @if (!string.IsNullOrEmpty(Model.SearchQuery))
+    <h1 class="search-title">@Model.Content.Title @if (!string.IsNullOrEmpty(Model.SearchQuery))
         {
             <span class="query-text">"@Model.SearchQuery"</span>
         }</h1>
@@ -37,20 +37,28 @@
         <div class="row justify-content-center">
             @foreach (var restaurant in Model.SearchHits)
             {
-                <div class="search-result d-flex mb-4">
+                                <a href="@restaurant.Url()" class="search-result-card d-flex mb-4">
+                    <!-- Front Image -->
+                    <div class="result-image flex-shrink-0 me-3">
+                        <img src="@restaurant.FrontImage?.Url()" alt="@restaurant.RestaurantName" class="img-fluid rounded">
+                    </div>
+@*                 <div class="search-result d-flex mb-4">
                     <!-- Front Image to the Left -->
                     <div class="result-image flex-shrink-0 me-3">
                         <a href="@restaurant.Url()">
                             <img src="@restaurant.FrontImage?.Url()" alt="@restaurant.RestaurantName" class="img-fluid rounded" style="max-width: 150px;">
                         </a>
-                    </div>
+                    </div> *@
 
                     <!-- Restaurant Details to the Right -->
                     <div class="result-details">
-                        <h5 class="restaurant-name fw-bold mb-1">@Html.Raw(restaurant.RestaurantName)</h5>
-                        <p class="restaurant-description mb-0">@Html.Raw(restaurant.Description)</p>
+                        <h5 class="search-restaurant-name fw-bold mb-1">@Html.Raw(restaurant.RestaurantName)</h5>
+                        <p class="search-restaurant-description mb-0">@Html.Raw(restaurant.Description)</p>
                     </div>
-                </div>
+@*                 </div>
+
+            *@
+                </a>
             }
         </div>
     }
