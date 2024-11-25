@@ -842,7 +842,7 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     }
 
 .row {
-    margin-top: 76px !important;
+    margin-top: 100px !important;
 }
 
 .rating-container {
@@ -1023,7 +1023,7 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     .privacy-terms-container h1 {
         font-size: 2.5rem;
         font-weight: bold;
-        margin-bottom: 30px;
+        margin: 30px 0;
         text-align: center;
     }
 
@@ -1226,5 +1226,63 @@ h1.custom-heading {
     }
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
+/*------------------------ Breadcrumb ---------------------------- */
 
+.breadcrumb {
+    display: flex; /* Gör det flexibelt för enkel layout */
+    list-style: none; /* Ta bort standardpunkter på listan */
+    padding: 10px 20px; /* Justera avstånd inuti breadcrumbs */
+    margin: 0; /* Ta bort ytterligare marginaler */
+    position: absolute; /* Gör breadcrumbs överlappande med bilden */
+    top: 60px; /* Flytta ner texten lite */
+    left: 20px; /* Placera den lite in från vänster */
+    background: rgba(255, 255, 255, 0.8); /* Lägg till en semi-transparent bakgrund */
+    border-radius: 5px; /* Rundade hörn */
+    z-index: 10; /* Säkerställ att breadcrumbs visas ovanpå bilden */
+}
 
+    .breadcrumb li {
+        margin-right: 10px; /* Avstånd mellan varje breadcrumb-del */
+        display: flex; /* Gör att innehållet i varje li hamnar i linje */
+        align-items: center; /* Centrera texten vertikalt */
+    }
+
+        .breadcrumb li a {
+            text-decoration: none;
+            position: relative;
+            display: inline-block; /* Gör länken till ett block så att hela området är klickbart */
+            padding: 5px 10px; /* Extra utrymme runt texten */
+            transition: all 0.3s ease; /* Smidig hover-animation */
+            font-weight: 600; /* Gör texten fetare */
+        }
+
+            .breadcrumb li a::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 2px; /* Placera strecket under texten */
+                width: 100%;
+                height: 1.5px; /* Tjockleken på strecket */
+                background-color: rgb(10, 83, 190); /* Färg på strecket */
+                border-radius: 5px; /* Mjuka kanter */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Lägg till en subtil skugga */
+                transition: all 0.3s ease; /* För smidig animation */
+                opacity: 0; /* Starta med att strecket är osynligt */
+            }
+
+            .breadcrumb li a:hover::after {
+                opacity: 1; /* Gör strecket synligt vid hover */
+            }
+
+        .breadcrumb li .divider {
+            color: #6c757d; /* Färg på divider-tecknet ("/") */
+            font-weight: 600;
+        }
+
+        .breadcrumb li.active {
+            color: #777; /* Färg för den aktiva sidan */
+            font-weight: 600; /* Gör texten fetare */
+            display: inline-block; /* Matcha layouten med länkarna */
+            padding: 5px 10px; /* Samma padding som länkarna för att justera linjeringen */
+        }

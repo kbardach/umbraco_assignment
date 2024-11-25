@@ -51,6 +51,9 @@
             <!-- Navigation bar -->
             @await Html.PartialAsync("navbarPartial")
 
+            <!-- Breadcrumbs -->
+            @await Html.PartialAsync("BreadcrumbsPartial")
+
             <main class="content">
                 @RenderBody()
             </main>
