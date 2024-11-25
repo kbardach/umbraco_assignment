@@ -5,19 +5,6 @@ namespace umbraco_assignment.Business.Extensions
 {
     public static class ContentExtensions
     {
-        //public static string GetFullUrl(this IPublishedContent content)
-        //{
-        //    // Resolve IUmbracoContextAccessor from the current service provider
-        //    var umbracoContextAccessor = StaticServiceProvider.Instance.GetService<IUmbracoContextAccessor>();
-
-        //    if (umbracoContextAccessor?.TryGetUmbracoContext(out var umbracoContext) ?? false)
-        //    {
-        //        return content.Url(mode: UrlMode.Absolute);
-        //    }
-
-        //    return string.Empty;
-        //}
-
         public static string GetFullUrl(this IPublishedContent content, string language)
         {
             // Resolve IUmbracoContextAccessor from the current service provider

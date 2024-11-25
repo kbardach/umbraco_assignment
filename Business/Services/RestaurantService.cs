@@ -36,35 +36,11 @@ namespace umbraco_assignment.Business.Services
 
                     restaurants = allRestaurants
                         .Where(x => x.Keywords?.Split(',').Any(k => k.Trim().Equals(query, StringComparison.OrdinalIgnoreCase)) == true)
-
-                        //.Where(x =>
-                        //    x.RestaurantName.Contains(query, StringComparison.OrdinalIgnoreCase) ||
-                        //    (x.Keywords != null && x.Keywords.ToLower().Replace(" ", "").Contains(query.ToLower().Replace(" ", "")))
-                        //)
                         .ToList();
                 }
             }
 
             return restaurants;
         }
-
-        //public async Task<IEnumerable<Restaurant>> GetRestaurantWithDetailsAsync(string query)
-        //{
-        //    var restaurants = new List<Restaurant>();
-
-        //    if (_umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
-        //    {
-        //        var rootContent = umbracoContext.Content.GetAtRoot().FirstOrDefault();
-
-        //        if (rootContent != null)
-        //        {
-        //            // Get all restaurant nodes (use your document type alias)
-        //            var allRestaurants = rootContent.DescendantsOrSelf<Restaurant>();
-        //            restaurants = allRestaurants.Where(x => x.RestaurantName.Contains(query, StringComparison.OrdinalIgnoreCase)).ToList();
-        //        }
-        //    }
-
-        //    return restaurants;
-        //}
     }
 }
