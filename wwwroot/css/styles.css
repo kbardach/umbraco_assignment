@@ -827,6 +827,8 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
     color: black !important;
     font-size: 14px !important;
     font-weight: bold;
+    margin-bottom: 10px; 
+    display: block;
 }
 
 .thumbnail {
