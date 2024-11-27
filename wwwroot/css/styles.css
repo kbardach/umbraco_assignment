@@ -639,9 +639,10 @@ footer a {
     text-decoration: none;
 }
 
-.about-button:hover{
-    text-decoration: underline;
-}
+    .about-button:hover {
+        background-color: #3a4047 !important;
+        transform: scale(1.05);
+    }
 
 @media (min-width: 576px) {
     .text-center h1 {
