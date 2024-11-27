@@ -74,4 +74,47 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 //---------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------ Script för karta --------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+    const mapElement = document.getElementById("map");
+    const longitude = parseFloat(mapElement.getAttribute("data-longitude"));
+    const latitude = parseFloat(mapElement.getAttribute("data-latitude"));
+
+    const map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([longitude, latitude]),
+            zoom: 17
+        })
+    });
+
+    const iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([longitude, latitude]))
+    });
+
+    const vectorSource = new ol.source.Vector({
+        features: [iconFeature]
+    });
+
+    const iconStyle = new ol.style.Style({
+        image: new ol.style.Icon({
+            src: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" fill="red" viewBox="0 0 24 24"><path d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 12 6 12s6-6.75 6-12c0-3.314-2.686-6-6-6zm0 9c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>')
+        })
+    });
+
+    iconFeature.setStyle(iconStyle);
+
+    const vectorLayer = new ol.layer.Vector({
+        source: vectorSource
+    });
+
+    map.addLayer(vectorLayer);
+});
+//---------------------------------------------------------------------------------------------------------------------------------
 

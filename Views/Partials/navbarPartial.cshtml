@@ -21,10 +21,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link @(Model.CurrentPage.Url(culture: currentCulture) == homePage ? "active" : "")"
-                           aria-current="page" href="@homePage">@Html.Raw(title)</a>
-                    </li>
                     @if (aboutUs != null)
                     {
                         <li class="nav-item">

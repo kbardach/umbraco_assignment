@@ -10,7 +10,6 @@
 
     var imageUrls = Model.Content.Images?.Select(image => image.Url()).ToList() ?? new List<string>();
     var mainImageUrl = imageUrls.FirstOrDefault();
-
     // Hämta recensionerna för aktuell restaurang
     var reviews = _reviewService.GetReviews(Model.Id); // Använd Model.Id om det är ditt RestaurantId
     double averageRating = reviews.Any() ? reviews.Average(r => r.Rating) : 0;
@@ -87,13 +86,11 @@
                             </div>
                         </div>
 
-
-
-
                         <div class="mb-4">
                             <label for="name" class="form-label"><strong>@Umbraco.GetDictionaryValue("NameForReviews"): *</strong></label>
                             <input type="text" class="form-control" id="name" name="name" required placeholder="@Umbraco.GetDictionaryValue("NameForReviewsPlaceholder")" />
                         </div>
+
                         <div class="mb-4">
                             <label for="commentTextarea" class="form-label"><strong>@Umbraco.GetDictionaryValue("LeaveAComment"): *</strong></label>
                             <textarea class="form-control" id="commentTextarea" rows="4" placeholder="@Umbraco.GetDictionaryValue("LeaveACommentPlaceholder")" name="comment" required></textarea>
@@ -113,8 +110,9 @@
     </div>
 </div>
 
-<!-- Div-container för kartan -->
-<div id="map"></div>
+<!-- Open Layers karta -->
+<div id="map" data-longitude="@Model.Content.Longitud" data-latitude="@Model.Content.Latitud"></div>
+
 
 <script>
     const imageUrls = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(imageUrls));
@@ -134,43 +132,6 @@
         currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
         document.getElementById("mainImage").src = imageUrls[currentIndex];
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const map = new ol.Map({
-            target: 'map',
-            layers: [
-                new ol.layer.Tile({
-                    source: new ol.source.OSM()
-                })
-            ],
-            view: new ol.View({
-                center: ol.proj.fromLonLat([@Model.Content.Longitud, @Model.Content.Latitud]),
-                zoom: 16
-            })
-        });
-
-        const iconFeature = new ol.Feature({
-            geometry: new ol.geom.Point(ol.proj.fromLonLat([@Model.Content.Longitud, @Model.Content.Latitud]))
-        });
-
-        const vectorSource = new ol.source.Vector({
-            features: [iconFeature]
-        });
-
-        const iconStyle = new ol.style.Style({
-            image: new ol.style.Icon({
-                src: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" fill="red" viewBox="0 0 24 24"><path d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 12 6 12s6-6.75 6-12c0-3.314-2.686-6-6-6zm0 9c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>')
-            })
-        });
-
-        iconFeature.setStyle(iconStyle);
-
-        const vectorLayer = new ol.layer.Vector({
-            source: vectorSource
-        });
-
-        map.addLayer(vectorLayer);
-    });
 </script>
 
 <!---------------------- Script för Karta ---------------------->

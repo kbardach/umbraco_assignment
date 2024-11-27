@@ -784,7 +784,7 @@ input[name="ac7a01a433ba47628674ce55ee3e9d94"] {
 @media (max-width: 480px) {
     .contact-us-h1 {
         font-size: 24px !important;
-        margin-top: 30px !important;
+        margin-top: 60px !important;
     }
 
     .custom-contact-form-container {
@@ -1288,3 +1288,11 @@ h1.custom-heading {
             display: inline-block; /* Matcha layouten med länkarna */
             padding: 5px 10px; /* Samma padding som länkarna för att justera linjeringen */
         }
+/*---------------------------------------------------------------------------------------------------------------------*/
+/*------------------------ karta kontakta oss ---------------------------- */
+
+.map-contact-us {
+    width: 100%;
+    height: 500px; /* Sätt en höjd så att kartan visas */
+}
+/*---------------------------------------------------------------------------------------------------------------------*/
